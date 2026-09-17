@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 8 | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>🌱 CountIt</h1>
+    <p>Biology You Can Count</p>
+  </header>
+
+
+  <main class="lesson">
+
+    <a href="index.html" class="back-button">
+      ← Back to Lessons
+    </a>
+
+
+    <h2>Lesson 8</h2>
+
+    <h3>💧 Transport of Water and Mineral Salts</h3>
+
+    <p>
+      Plants need water and mineral salts for growth,
+      photosynthesis and other life processes.
+    </p>
+
+    <p>
+      Water and mineral salts are absorbed from the soil
+      by the roots and transported to different parts of
+      the plant.
+    </p>
+
+
+    <h3>🌱 Absorption by Root Hairs</h3>
+
+    <p>
+      Root hairs are tiny extensions of root epidermal cells.
+      They increase the surface area of the root for absorbing
+      water and mineral salts.
+    </p>
+
+    <p>
+      Water enters root hair cells mainly by
+      <strong>osmosis</strong>.
+    </p>
+
+    <p>
+      Mineral ions may enter the root by
+      <strong>active transport</strong>.
+    </p>
+
+
+    <h3>🚰 The Xylem</h3>
+
+    <p>
+      The <strong>xylem</strong> is a type of vascular tissue
+      that transports water and mineral salts from the roots
+      towards the leaves and other parts of the plant.
+    </p>
+
+    <p>
+      Xylem vessels form long tubes through which water can
+      move upwards.
+    </p>
+
+
+    <h3>⬆️ Movement of Water Up the Plant</h3>
+
+    <p>
+      Water moves from the roots through the xylem to the
+      stem and leaves.
+    </p>
+
+    <p>
+      One important force helping this movement is the
+      <strong>transpiration pull</strong>.
+    </p>
+
+    <p>
+      When water evaporates from the leaves during
+      transpiration, it creates a pull that helps draw
+      water upwards through the xylem.
+    </p>
+
+
+    <h3>🧂 Mineral Salts</h3>
+
+    <p>
+      Plants need mineral ions for healthy growth.
+    </p>
+
+    <p>
+      For example, <strong>nitrate ions</strong> are needed
+      to make amino acids and proteins.
+    </p>
+
+    <p>
+      <strong>Magnesium ions</strong> are needed for the
+      formation of chlorophyll.
+    </p>
+
+
+    <div class="note">
+
+      <strong>🧠 WASSCE Reminder:</strong>
+
+      <p>
+        <strong>Root hairs →</strong>
+        increase surface area for absorption.
+      </p>
+
+      <p>
+        <strong>Osmosis →</strong>
+        movement of water across a partially permeable membrane.
+      </p>
+
+      <p>
+        <strong>Active transport →</strong>
+        movement of substances against a concentration gradient
+        using energy.
+      </p>
+
+      <p>
+        <strong>Xylem →</strong>
+        transports water and mineral salts.
+      </p>
+
+      <p>
+        <strong>Transpiration pull →</strong>
+        helps move water upwards through the xylem.
+      </p>
+
+    </div>
+
+
+    <hr>
+
+
+    <h2>📝 Lesson 8 Quiz</h2>
+
+    <p>
+      <strong>Get all four correct to complete the lesson.</strong>
+    </p>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question">
+
+      <p>
+        1. What is the main function of root hairs?
+      </p>
+
+      <button id="q1Surface">
+        Increase the surface area for absorption
+      </button>
+
+      <button id="q1Flowers">
+        Produce flowers
+      </button>
+
+      <button id="q1Seeds">
+        Produce seeds
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question">
+
+      <p>
+        2. Which tissue transports water and mineral salts
+        through the plant?
+      </p>
+
+      <button id="q2Phloem">
+        Phloem
+      </button>
+
+      <button id="q2Xylem">
+        Xylem
+      </button>
+
+      <button id="q2Epidermis">
+        Epidermis
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question">
+
+      <p>
+        3. How does water mainly enter root hair cells?
+      </p>
+
+      <button id="q3Active">
+        Active transport
+      </button>
+
+      <button id="q3Osmosis">
+        Osmosis
+      </button>
+
+      <button id="q3Photosynthesis">
+        Photosynthesis
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question">
+
+      <p>
+        4. Which mineral ion is needed for the formation
+        of chlorophyll?
+      </p>
+
+      <button id="q4Magnesium">
+        Magnesium ions
+      </button>
+
+      <button id="q4Nitrate">
+        Nitrate ions
+      </button>
+
+      <button id="q4Chloride">
+        Chloride ions
+      </button>
+
+    </div>
+
+
+    <div id="result"></div>
+
+
+    <button id="completeBtn" disabled>
+      🔒 Complete Lesson
+    </button>
+
+  </main>
+
+
+  <!-- COUNTIT APP -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+    let score = 0;
+    let answered = 0;
+
+
+    function checkQuizAnswer(button, correct) {
+
+      if (button.disabled) {
+        return;
+      }
+
+      button.disabled = true;
+
+      answered++;
+
+
+      if (correct) {
+
+        button.style.backgroundColor = "green";
+        button.style.color = "white";
+
+        score++;
+
+      } else {
+
+        button.style.backgroundColor = "red";
+        button.style.color = "white";
+
+      }
+
+
+      if (answered === 4) {
+
+        const result =
+          document.getElementById("result");
+
+
+        if (score === 4) {
+
+          result.innerHTML =
+            "🎉 Perfect! You scored 4/4. " +
+            "You can now complete Lesson 8!";
+
+          document.getElementById("completeBtn")
+            .disabled = false;
+
+        } else {
+
+          result.innerHTML =
+            "You scored " + score +
+            "/4. Review the lesson and try again.";
+
+        }
+
+      }
+
+    }
+
+
+    /* =========================
+       QUESTION 1
+    ========================= */
+
+    document
+      .getElementById("q1Surface")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q1Flowers")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q1Seeds")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 2
+    ========================= */
+
+    document
+      .getElementById("q2Phloem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q2Xylem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q2Epidermis")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 3
+    ========================= */
+
+    document
+      .getElementById("q3Active")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q3Osmosis")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q3Photosynthesis")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 4
+    ========================= */
+
+    document
+      .getElementById("q4Magnesium")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q4Nitrate")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q4Chloride")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       COMPLETE LESSON
+    ========================= */
+
+    document
+      .getElementById("completeBtn")
+      .addEventListener("click", function() {
+
+        /*
+          If Lesson 8 is already completed,
+          continue directly to Lesson 9.
+        */
+
+        if (isLessonCompleted(8)) {
+
+          window.location.href =
+            "lesson9.html";
+
+          return;
+
+        }
+
+
+        /*
+          Add 10 Cells
+        */
+
+        const cells =
+          addCells(10);
+
+
+        /*
+          Save Lesson 8 completion
+        */
+
+        completeLesson(8);
+
+
+        /*
+          Show completion message
+        */
+
+        document.getElementById("result").innerHTML =
+          "🎉 Lesson 8 completed! " +
+          "You earned 🧬 10 Cells! " +
+          "Total Cells: " + cells;
+
+
+        /*
+          Change button to Lesson 9
+        */
+
+        const button =
+          document.getElementById("completeBtn");
+
+
+        button.innerHTML =
+          "🔓 Continue to Lesson 9 →";
+
+
+        button.disabled = false;
+
+
+        /*
+          Replace button to remove
+          the old click listener.
+        */
+
+        const newButton =
+          button.cloneNode(true);
+
+
+        button.parentNode.replaceChild(
+          newButton,
+          button
+        );
+
+
+        newButton.addEventListener(
+          "click",
+          function() {
+
+            window.location.href =
+              "lesson9.html";
+
+          }
+        );
+
+      });
+
+  </script>
+
+</body>
+
+</html>
