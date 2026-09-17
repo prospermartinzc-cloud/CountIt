@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Lessons | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+  <header>
+
+    <h1>🌱 CountIt</h1>
+
+    <p>Biology You Can Count</p>
+
+  </header>
+
+
+  <main class="container">
+
+    <h2>📚 Biology Lessons</h2>
+
+    <p>
+      Complete each lesson to unlock the next one.
+    </p>
+
+
+    <div id="lessonList"></div>
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <nav class="bottom-nav">
+
+    <a
+      href="index.html"
+      class="nav-item">
+
+      <span>🏠</span>
+      Home
+
+    </a>
+
+
+    <a
+      href="lessons.html"
+      class="nav-item active">
+
+      <span>📚</span>
+      Lessons
+
+    </a>
+
+
+    <a
+      href="index.html#achievements"
+      class="nav-item">
+
+      <span>🏆</span>
+      Achievements
+
+    </a>
+
+
+    <a
+      href="profile.html"
+      class="nav-item">
+
+      <span>👤</span>
+      Profile
+
+    </a>
+
+  </nav>
+
+
+  <script>
+
+    const lessonTitles = [
+
+      "Habitat",
+
+      "Factors Affecting Photosynthesis",
+
+      "Investigating Photosynthesis",
+
+      "Products of Photosynthesis",
+
+      "Structure of a Leaf",
+
+      "Gas Exchange in Plants",
+
+      "Transpiration",
+
+      "Transport of Water and Mineral Salts",
+
+      "Translocation of Manufactured Food",
+
+      "Mineral Nutrition in Plants"
+
+    ];
+
+
+    const lessonList =
+      document.getElementById("lessonList");
+
+
+    for (let i = 1; i <= 10; i++) {
+
+      const completed =
+        localStorage.getItem(
+          "lesson" + i + "Completed"
+        ) === "true";
+
+
+      let unlocked = false;
+
+
+      /*
+        Lesson 1 is always unlocked.
+        Every other lesson requires
+        completion of the previous lesson.
+      */
+
+      if (i === 1) {
+
+        unlocked = true;
+
+      } else {
+
+        unlocked =
+          localStorage.getItem(
+            "lesson" + (i - 1) + "Completed"
+          ) === "true";
+
+      }
+
+
+      const card =
+        document.createElement("div");
+
+      card.className = "lesson-card";
+
+
+      if (completed) {
+
+        card.classList.add("completed");
+
+      }
+
+
+      if (!unlocked) {
+
+        card.classList.add("locked");
+
+      }
+
+
+      let icon = "🔒";
+
+      let status = "Locked";
+
+
+      if (completed) {
+
+        icon = "✅";
+
+        status = "Completed";
+
+      } else if (unlocked) {
+
+        icon = "▶️";
+
+        status = "Start Lesson";
+
+      }
+
+
+      card.innerHTML = `
+
+        <div>
+
+          <h3>
+            ${icon} Lesson ${i}
+          </h3>
+
+          <p>
+            ${lessonTitles[i - 1]}
+          </p>
+
+          <small>
+            ${status}
+          </small>
+
+        </div>
+
+      `;
+
+
+      if (unlocked) {
+
+        card.onclick =
+          function() {
+
+            window.location.href =
+              "lesson" + i + ".html";
+
+          };
+
+      }
+
+
+      lessonList.appendChild(card);
+
+    }
+
+  </script>
+
+</body>
+
+</html>
