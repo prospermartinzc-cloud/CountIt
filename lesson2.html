@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 2 | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>🌱 CountIt</h1>
+    <p>Biology You Can Count</p>
+  </header>
+
+  <main class="lesson">
+
+    <a href="index.html" class="back-button">
+      ← Back to Lessons
+    </a>
+
+    <h2>Lesson 2</h2>
+
+    <h3>☀️ Factors Affecting Photosynthesis</h3>
+
+    <p>
+      The rate of photosynthesis is affected by several factors.
+      The main factors include <strong>light intensity</strong>,
+      <strong>carbon dioxide concentration</strong> and
+      <strong>temperature</strong>.
+    </p>
+
+    <h3>💡 Light Intensity</h3>
+
+    <p>
+      Light provides the energy needed for photosynthesis.
+      When light intensity increases, the rate of photosynthesis
+      generally increases until another factor becomes limiting.
+    </p>
+
+    <h3>🌫️ Carbon Dioxide Concentration</h3>
+
+    <p>
+      Carbon dioxide is a raw material needed for photosynthesis.
+      Increasing the concentration of carbon dioxide can increase
+      the rate of photosynthesis until another factor becomes
+      limiting.
+    </p>
+
+    <h3>🌡️ Temperature</h3>
+
+    <p>
+      Photosynthesis is controlled by enzymes, so temperature
+      affects its rate.
+    </p>
+
+    <p>
+      At low temperatures, the rate of photosynthesis is slow.
+      As temperature increases, the rate increases up to an
+      optimum temperature.
+    </p>
+
+    <p>
+      At very high temperatures, enzymes may become denatured,
+      causing the rate of photosynthesis to decrease.
+    </p>
+
+    <div class="note">
+
+      <strong>🧠 WASSCE Reminder:</strong>
+
+      <p>
+        <strong>Light intensity →</strong>
+        provides energy for photosynthesis.
+      </p>
+
+      <p>
+        <strong>Carbon dioxide →</strong>
+        raw material for photosynthesis.
+      </p>
+
+      <p>
+        <strong>Temperature →</strong>
+        affects enzyme activity involved in photosynthesis.
+      </p>
+
+      <p>
+        When one factor limits photosynthesis, increasing another
+        factor may have little or no effect.
+      </p>
+
+    </div>
+
+    <hr>
+
+    <h2>📝 Lesson 2 Quiz</h2>
+
+    <p>
+      <strong>
+        Get all four correct to complete the lesson.
+      </strong>
+    </p>
+
+    <!-- QUESTION 1 -->
+
+    <div class="question">
+
+      <p>
+        1. Which factor provides the energy needed for
+        photosynthesis?
+      </p>
+
+      <button id="q1Light">
+        Light intensity
+      </button>
+
+      <button id="q1Water">
+        Water colour
+      </button>
+
+      <button id="q1Soil">
+        Soil texture
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question">
+
+      <p>
+        2. Which gas is a raw material for photosynthesis?
+      </p>
+
+      <button id="q2Oxygen">
+        Oxygen
+      </button>
+
+      <button id="q2Carbon">
+        Carbon dioxide
+      </button>
+
+      <button id="q2Nitrogen">
+        Nitrogen
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question">
+
+      <p>
+        3. Photosynthesis is affected by temperature because
+        it involves:
+      </p>
+
+      <button id="q3Enzymes">
+        Enzymes
+      </button>
+
+      <button id="q3Bones">
+        Bones
+      </button>
+
+      <button id="q3Blood">
+        Blood
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question">
+
+      <p>
+        4. What happens when one factor becomes limiting?
+      </p>
+
+      <button id="q4Increase">
+        Increasing another factor may have little effect
+      </button>
+
+      <button id="q4Stop">
+        Photosynthesis immediately becomes impossible
+      </button>
+
+      <button id="q4Double">
+        Photosynthesis always doubles
+      </button>
+
+    </div>
+
+
+    <div id="result"></div>
+
+
+    <button id="completeBtn" disabled>
+      🔒 Complete Lesson
+    </button>
+
+  </main>
+
+
+  <!-- COUNTIT APP -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+    let score = 0;
+    let answered = 0;
+
+
+    function checkQuizAnswer(button, correct) {
+
+      if (button.disabled) {
+        return;
+      }
+
+      button.disabled = true;
+
+      answered++;
+
+
+      if (correct) {
+
+        button.style.backgroundColor = "green";
+        button.style.color = "white";
+
+        score++;
+
+      } else {
+
+        button.style.backgroundColor = "red";
+        button.style.color = "white";
+
+      }
+
+
+      if (answered === 4) {
+
+        const result =
+          document.getElementById("result");
+
+
+        if (score === 4) {
+
+          result.innerHTML =
+            "🎉 Perfect! You scored 4/4. " +
+            "You can now complete Lesson 2!";
+
+          document.getElementById("completeBtn")
+            .disabled = false;
+
+        } else {
+
+          result.innerHTML =
+            "You scored " + score +
+            "/4. Review the lesson and try again.";
+
+        }
+
+      }
+
+    }
+
+
+    /*
+      QUESTION 1
+    */
+
+    document.getElementById("q1Light")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q1Water")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q1Soil")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 2
+    */
+
+    document.getElementById("q2Oxygen")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q2Carbon")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q2Nitrogen")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 3
+    */
+
+    document.getElementById("q3Enzymes")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q3Bones")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q3Blood")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 4
+    */
+
+    document.getElementById("q4Increase")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q4Stop")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q4Double")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      COMPLETE LESSON 2
+    */
+
+    const completeBtn =
+      document.getElementById("completeBtn");
+
+
+    completeBtn.addEventListener(
+      "click",
+      function() {
+
+        /*
+          If Lesson 2 was already completed,
+          continue directly to Lesson 3.
+        */
+
+        if (isLessonCompleted(2)) {
+
+          window.location.href =
+            "lesson3.html";
+
+          return;
+
+        }
+
+
+        /*
+          Add 10 Cells
+        */
+
+        addCells(10);
+
+
+        /*
+          Save Lesson 2 completion
+        */
+
+        completeLesson(2);
+
+
+        /*
+          Show completion message
+        */
+
+        const totalCells = getCells();
+
+        document.getElementById("result").innerHTML =
+          "🎉 Lesson 2 completed! " +
+          "You earned 🧬 10 Cells! " +
+          "Total Cells: " + totalCells;
+
+
+        /*
+          Change button
+        */
+
+        completeBtn.innerHTML =
+          "🔓 Continue to Lesson 3 →";
+
+
+        /*
+          Replace button so the old
+          completion listener cannot run again.
+        */
+
+        const newButton =
+          completeBtn.cloneNode(true);
+
+
+        completeBtn.parentNode.replaceChild(
+          newButton,
+          completeBtn
+        );
+
+
+        /*
+          Continue to Lesson 3
+        */
+
+        newButton.addEventListener(
+          "click",
+          function() {
+
+            window.location.href =
+              "lesson3.html";
+
+          }
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
