@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Profile | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+  <header>
+
+    <h1>🌱 CountIt</h1>
+
+    <p>Biology You Can Count</p>
+
+  </header>
+
+
+  <main class="container">
+
+    <div class="profile-header">
+
+      <div class="profile-icon">
+        🧑‍🔬
+      </div>
+
+      <h2>My CountIt Profile</h2>
+
+      <p>
+        Keep learning. Keep growing. 🌱
+      </p>
+
+    </div>
+
+
+    <section class="profile-stats">
+
+      <div class="stat">
+        <span>🧬</span>
+        <strong id="profileCells">0</strong>
+        <p>Cells</p>
+      </div>
+
+
+      <div class="stat">
+        <span>🔥</span>
+        <strong id="profileStreak">0</strong>
+        <p>Day Streak</p>
+      </div>
+
+
+      <div class="stat">
+        <span>📚</span>
+        <strong id="profileLessons">0</strong>
+        <p>Lessons</p>
+      </div>
+
+    </section>
+
+
+    <section class="progress-section">
+
+      <h2>📈 My Progress</h2>
+
+      <div class="progress-info">
+
+        <span id="profileProgressText">
+          0 / 10 lessons
+        </span>
+
+        <span id="profileProgressPercent">
+          0%
+        </span>
+
+      </div>
+
+
+      <div class="progress-bar">
+
+        <div
+          id="profileProgressFill"
+          class="progress-fill">
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="completion-box">
+
+      <div class="celebration-icon">
+        🏆
+      </div>
+
+      <h2>CountIt Master</h2>
+
+      <p id="masterStatus">
+        Keep completing lessons to unlock this achievement.
+      </p>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <nav class="bottom-nav">
+
+    <a
+      href="index.html"
+      class="nav-item">
+
+      <span>🏠</span>
+      Home
+
+    </a>
+
+
+    <a
+      href="index.html#lessons"
+      class="nav-item">
+
+      <span>📚</span>
+      Lessons
+
+    </a>
+
+
+    <a
+      href="index.html#achievements"
+      class="nav-item">
+
+      <span>🏆</span>
+      Achievements
+
+    </a>
+
+
+    <a
+      href="profile.html"
+      class="nav-item active">
+
+      <span>👤</span>
+      Profile
+
+    </a>
+
+  </nav>
+
+
+  <script>
+
+    /*
+      Get saved Cells
+    */
+
+    const cells =
+      Number(localStorage.getItem("cells")) || 0;
+
+
+    /*
+      Get saved streak
+    */
+
+    const streak =
+      Number(localStorage.getItem("streak")) || 0;
+
+
+    /*
+      Count completed lessons
+    */
+
+    let completedLessons = 0;
+
+
+    for (let i = 1; i <= 10; i++) {
+
+      if (
+        localStorage.getItem(
+          "lesson" + i + "Completed"
+        ) === "true"
+      ) {
+
+        completedLessons++;
+
+      }
+
+    }
+
+
+    /*
+      Calculate progress
+    */
+
+    const progress =
+      Math.round(
+        (completedLessons / 10) * 100
+      );
+
+
+    /*
+      Display profile information
+    */
+
+    document.getElementById(
+      "profileCells"
+    ).textContent = cells;
+
+
+    document.getElementById(
+      "profileStreak"
+    ).textContent = streak;
+
+
+    document.getElementById(
+      "profileLessons"
+    ).textContent = completedLessons;
+
+
+    document.getElementById(
+      "profileProgressText"
+    ).textContent =
+      completedLessons + " / 10 lessons";
+
+
+    document.getElementById(
+      "profileProgressPercent"
+    ).textContent =
+      progress + "%";
+
+
+    document.getElementById(
+      "profileProgressFill"
+    ).style.width =
+      progress + "%";
+
+
+    /*
+      CountIt Master
+    */
+
+    if (completedLessons === 10) {
+
+      document.getElementById(
+        "masterStatus"
+      ).innerHTML =
+        "🎉 You completed all 10 lessons!<br><br>" +
+        "<strong>CountIt Master unlocked!</strong>";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
