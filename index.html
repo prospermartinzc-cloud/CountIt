@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>CountIt | Biology You Can Count</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+
+</head>
+
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <h1>🌱 CountIt</h1>
+
+    <p>
+      Biology You Can Count
+    </p>
+
+  </header>
+
+
+  <main class="container">
+
+
+    <!-- DASHBOARD -->
+
+    <section class="dashboard">
+
+      <div class="stat">
+
+        <span>🧬</span>
+
+        <strong id="cells">
+          0
+        </strong>
+
+        <p>
+          Cells
+        </p>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span>🔥</span>
+
+        <strong id="streak">
+          0
+        </strong>
+
+        <p>
+          Day Streak
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROGRESS -->
+
+    <section class="progress-section">
+
+      <h2>📈 Your Progress</h2>
+
+      <div class="progress-info">
+
+        <span id="progressText">
+          0 / 10 lessons
+        </span>
+
+        <span id="progressPercent">
+          0%
+        </span>
+
+      </div>
+
+
+      <div class="progress-bar">
+
+        <div
+          id="progressFill"
+          class="progress-fill">
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTINUE LEARNING -->
+
+    <section class="continue-section">
+
+      <h2>
+        📚 Keep Learning
+      </h2>
+
+      <p id="continueText">
+        Your next lesson is waiting!
+      </p>
+
+      <button
+        id="continueBtn"
+        onclick="continueLearning()">
+
+        ▶️ Continue Learning
+
+      </button>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+
+    <section class="achievements-section">
+
+      <h2>
+        🏆 Achievements
+      </h2>
+
+      <div class="achievement-grid">
+
+
+        <!-- ACHIEVEMENT 1 -->
+
+        <div
+          id="achievement1"
+          class="achievement">
+
+          <span>🌱</span>
+
+          <h3>
+            First Step
+          </h3>
+
+          <p>
+            Complete your first lesson
+          </p>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT 2 -->
+
+        <div
+          id="achievement2"
+          class="achievement">
+
+          <span>🧬</span>
+
+          <h3>
+            Cell Collector
+          </h3>
+
+          <p>
+            Earn 50 Cells
+          </p>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT 3 -->
+
+        <div
+          id="achievement3"
+          class="achievement">
+
+          <span>🔬</span>
+
+          <h3>
+            Biology Explorer
+          </h3>
+
+          <p>
+            Complete 5 lessons
+          </p>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT 4 -->
+
+        <div
+          id="achievement4"
+          class="achievement">
+
+          <span>🔥</span>
+
+          <h3>
+            3-Day Learner
+          </h3>
+
+          <p>
+            Reach a 3-day streak
+          </p>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT 5 -->
+
+        <div
+          id="achievement5"
+          class="achievement">
+
+          <span>🏆</span>
+
+          <h3>
+            CountIt Master
+          </h3>
+
+          <p>
+            Complete all 10 lessons
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <nav class="bottom-nav">
+
+
+    <a
+      href="index.html"
+      class="nav-item active">
+
+      <span>🏠</span>
+
+      Home
+
+    </a>
+
+
+    <a
+      href="lessons.html"
+      class="nav-item">
+
+      <span>📚</span>
+
+      Lessons
+
+    </a>
+
+
+    <a
+      href="achievements.html"
+      class="nav-item">
+
+      <span>🏆</span>
+
+      Achievements
+
+    </a>
+
+
+    <a
+      href="profile.html"
+      class="nav-item">
+
+      <span>👤</span>
+
+      Profile
+
+    </a>
+
+
+  </nav>
+
+
+  <!-- COUNTIT SHARED JAVASCRIPT -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+
+    /* =========================
+       CELLS
+    ========================= */
+
+    let cells =
+      Number(
+        localStorage.getItem("cells")
+      ) || 0;
+
+
+    const cellsDisplay =
+      document.getElementById("cells");
+
+
+    /*
+      Get the previous
+      Cells amount.
+    */
+
+    let previousCells =
+      Number(
+        localStorage.getItem(
+          "previousCells"
+        )
+      ) || 0;
+
+
+    /*
+      Animate the Cells
+      number upward.
+    */
+
+    let currentCells =
+      previousCells;
+
+
+    const cellAnimation =
+      setInterval(
+        function() {
+
+          if (
+            currentCells >= cells
+          ) {
+
+            clearInterval(
+              cellAnimation
+            );
+
+            localStorage.setItem(
+              "previousCells",
+              cells
+            );
+
+            return;
+
+          }
+
+
+          currentCells++;
+
+
+          cellsDisplay.textContent =
+            currentCells;
+
+        },
+        30
+      );
+
+
+    /*
+      If the current Cells
+      amount is lower than
+      the saved amount,
+      show the current amount.
+    */
+
+    if (
+      cells < previousCells
+    ) {
+
+      cellsDisplay.textContent =
+        cells;
+
+      localStorage.setItem(
+        "previousCells",
+        cells
+      );
+
+    }
+
+
+
+    /* =========================
+       DAY STREAK
+    ========================= */
+
+    let streak =
+      Number(
+        localStorage.getItem("streak")
+      ) || 0;
+
+
+    const today =
+      new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+    const lastVisitDate =
+      localStorage.getItem(
+        "lastVisitDate"
+      );
+
+
+    if (!lastVisitDate) {
+
+      streak = 1;
+
+      localStorage.setItem(
+        "streak",
+        streak
+      );
+
+      localStorage.setItem(
+        "lastVisitDate",
+        today
+      );
+
+    }
+
+
+    else if (
+      lastVisitDate !== today
+    ) {
+
+      const lastDate =
+        new Date(lastVisitDate);
+
+      const currentDate =
+        new Date(today);
+
+
+      const difference =
+        Math.floor(
+          (
+            currentDate -
+            lastDate
+          ) /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      if (difference === 1) {
+
+        streak++;
+
+      }
+
+      else if (difference > 1) {
+
+        streak = 1;
+
+      }
+
+
+      localStorage.setItem(
+        "streak",
+        streak
+      );
+
+
+      localStorage.setItem(
+        "lastVisitDate",
+        today
+      );
+
+    }
+
+
+    document.getElementById(
+      "streak"
+    ).textContent = streak;
+
+
+
+    /* =========================
+       COUNT COMPLETED LESSONS
+    ========================= */
+
+    let completedLessons = 0;
+
+
+    for (
+      let i = 1;
+      i <= 10;
+      i++
+    ) {
+
+      if (
+        localStorage.getItem(
+          "lesson" + i + "Completed"
+        ) === "true"
+      ) {
+
+        completedLessons++;
+
+      }
+
+    }
+
+
+
+    /* =========================
+       PROGRESS
+    ========================= */
+
+    const progress =
+      Math.round(
+        (
+          completedLessons / 10
+        ) * 100
+      );
+
+
+    document.getElementById(
+      "progressText"
+    ).textContent =
+      completedLessons +
+      " / 10 lessons";
+
+
+    document.getElementById(
+      "progressPercent"
+    ).textContent =
+      progress + "%";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      progress + "%";
+
+
+
+    /* =========================
+       ACHIEVEMENTS
+    ========================= */
+
+    function unlockAchievement(
+      number
+    ) {
+
+      document
+        .getElementById(
+          "achievement" + number
+        )
+        .classList.add(
+          "unlocked"
+        );
+
+    }
+
+
+    /* First Step */
+
+    if (
+      completedLessons >= 1
+    ) {
+
+      unlockAchievement(1);
+
+    }
+
+
+    /* Cell Collector */
+
+    if (
+      cells >= 50
+    ) {
+
+      unlockAchievement(2);
+
+    }
+
+
+    /* Biology Explorer */
+
+    if (
+      completedLessons >= 5
+    ) {
+
+      unlockAchievement(3);
+
+    }
+
+
+    /* 3-Day Learner */
+
+    if (
+      streak >= 3
+    ) {
+
+      unlockAchievement(4);
+
+    }
+
+
+    /* CountIt Master */
+
+    if (
+      completedLessons === 10
+    ) {
+
+      unlockAchievement(5);
+
+    }
+
+
+
+    /* =========================
+       CONTINUE LEARNING
+    ========================= */
+
+    function continueLearning() {
+
+
+      for (
+        let i = 1;
+        i <= 10;
+        i++
+      ) {
+
+        const completed =
+          localStorage.getItem(
+            "lesson" + i + "Completed"
+          ) === "true";
+
+
+        if (!completed) {
+
+          window.location.href =
+            "lesson" + i + ".html";
+
+          return;
+
+        }
+
+      }
+
+
+      document.getElementById(
+        "continueText"
+      ).textContent =
+        "🎉 You have completed all 10 CountIt lessons!";
+
+
+      document.getElementById(
+        "continueBtn"
+      ).textContent =
+        "🏆 CountIt Complete";
+
+
+      document.getElementById(
+        "continueBtn"
+      ).onclick =
+        function() {
+
+          window.location.href =
+            "lesson10.html";
+
+        };
+
+    }
+
+
+
+    /* =========================
+       ALL LESSONS COMPLETE
+    ========================= */
+
+    if (
+      completedLessons === 10
+    ) {
+
+      document.getElementById(
+        "continueText"
+      ).textContent =
+        "🎉 You have completed all 10 CountIt lessons!";
+
+
+      document.getElementById(
+        "continueBtn"
+      ).textContent =
+        "🏆 CountIt Complete";
+
+    }
+
+
+
+    /* =========================
+       SERVICE WORKER
+    ========================= */
+
+    if (
+      "serviceWorker" in navigator
+    ) {
+
+      window.addEventListener(
+        "load",
+        function() {
+
+          navigator.serviceWorker
+            .register(
+              "service-worker.js"
+            )
+            .then(
+              function() {
+
+                console.log(
+                  "CountIt service worker registered!"
+                );
+
+              }
+            )
+            .catch(
+              function(error) {
+
+                console.error(
+                  "Service worker registration failed:",
+                  error
+                );
+
+              }
+            );
+
+        }
+      );
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>
