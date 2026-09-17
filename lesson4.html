@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 4 | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+  <header>
+
+    <h1>🌱 CountIt</h1>
+
+    <p>
+      Biology You Can Count
+    </p>
+
+  </header>
+
+
+  <main class="lesson">
+
+
+    <a
+      href="index.html"
+      class="back-button">
+
+      ← Back to Lessons
+
+    </a>
+
+
+    <h2>
+      Lesson 4
+    </h2>
+
+
+    <h3>
+      🌿 Products of Photosynthesis
+    </h3>
+
+
+    <p>
+
+      Photosynthesis is the process by which green plants make
+      their own food using light energy.
+
+    </p>
+
+
+    <p>
+
+      The main raw materials needed for photosynthesis are
+      <strong>carbon dioxide</strong> and <strong>water</strong>.
+
+    </p>
+
+
+    <p>
+
+      Light energy is absorbed by <strong>chlorophyll</strong>.
+
+    </p>
+
+
+    <h3>
+      🍬 Glucose
+    </h3>
+
+
+    <p>
+
+      One important product of photosynthesis is
+      <strong>glucose</strong>.
+
+    </p>
+
+
+    <p>
+
+      Glucose is a simple sugar that can be used by the plant
+      to release energy through respiration.
+
+    </p>
+
+
+    <p>
+
+      Plants can also use glucose to make other substances.
+
+    </p>
+
+
+    <h3>
+      🌾 Starch
+    </h3>
+
+
+    <p>
+
+      Some of the glucose produced during photosynthesis is
+      converted into <strong>starch</strong> and stored in the plant.
+
+    </p>
+
+
+    <div class="note">
+
+      <strong>
+        🧠 Remember:
+      </strong>
+
+      <p>
+
+        Starch is a storage form of carbohydrate in plants.
+
+      </p>
+
+    </div>
+
+
+    <h3>
+      🌱 Other Substances Made from Glucose
+    </h3>
+
+
+    <p>
+
+      Glucose can be used to produce other important substances
+      needed by plants.
+
+    </p>
+
+
+    <p>
+
+      For example, glucose can be used to make
+      <strong>cellulose</strong>, which forms part of plant
+      cell walls.
+
+    </p>
+
+
+    <p>
+
+      Glucose can also be combined with nitrate ions to make
+      <strong>amino acids</strong>, which are used to make proteins.
+
+    </p>
+
+
+    <h3>
+      💨 Oxygen
+    </h3>
+
+
+    <p>
+
+      <strong>Oxygen</strong> is also released during photosynthesis.
+
+    </p>
+
+
+    <p>
+
+      The oxygen is released into the atmosphere and can be used
+      by organisms for aerobic respiration.
+
+    </p>
+
+
+    <h3>
+      📚 WASSCE Reminder
+    </h3>
+
+
+    <div class="note">
+
+      <p>
+
+        <strong>Main food product:</strong>
+        Glucose
+
+      </p>
+
+
+      <p>
+
+        <strong>Storage carbohydrate:</strong>
+        Starch
+
+      </p>
+
+
+      <p>
+
+        <strong>Gas released:</strong>
+        Oxygen
+
+      </p>
+
+
+      <p>
+
+        <strong>Cellulose:</strong>
+        Made from glucose and used in plant cell walls.
+
+      </p>
+
+
+      <p>
+
+        <strong>Proteins:</strong>
+        Made from amino acids.
+
+      </p>
+
+    </div>
+
+
+    <hr>
+
+
+    <h2>
+      📝 Lesson 4 Quiz
+    </h2>
+
+
+    <p>
+
+      <strong>
+        Get all four correct to complete the lesson.
+      </strong>
+
+    </p>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question">
+
+      <p>
+        1. What is the main food product of photosynthesis?
+      </p>
+
+
+      <button id="q1Glucose">
+        Glucose
+      </button>
+
+
+      <button id="q1Protein">
+        Protein
+      </button>
+
+
+      <button id="q1Oxygen">
+        Oxygen
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question">
+
+      <p>
+        2. Into what substance is some glucose converted
+        for storage?
+      </p>
+
+
+      <button id="q2Protein">
+        Protein
+      </button>
+
+
+      <button id="q2Starch">
+        Starch
+      </button>
+
+
+      <button id="q2Oxygen">
+        Oxygen
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question">
+
+      <p>
+        3. Which gas is released during photosynthesis?
+      </p>
+
+
+      <button id="q3Oxygen">
+        Oxygen
+      </button>
+
+
+      <button id="q3Carbon">
+        Carbon dioxide
+      </button>
+
+
+      <button id="q3Nitrogen">
+        Nitrogen
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question">
+
+      <p>
+        4. What substance is used to make plant cell walls?
+      </p>
+
+
+      <button id="q4Starch">
+        Starch
+      </button>
+
+
+      <button id="q4Cellulose">
+        Cellulose
+      </button>
+
+
+      <button id="q4Protein">
+        Protein
+      </button>
+
+    </div>
+
+
+    <div id="result"></div>
+
+
+    <button
+      id="completeBtn"
+      disabled>
+
+      🔒 Complete Lesson
+
+    </button>
+
+
+  </main>
+
+
+
+  <!-- COUNTIT SHARED JAVASCRIPT -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+
+    /* =========================
+       QUIZ VARIABLES
+    ========================= */
+
+    let score = 0;
+
+    let answered = 0;
+
+
+
+    /* =========================
+       CHECK QUIZ ANSWER
+    ========================= */
+
+    function checkQuizAnswer(
+      button,
+      correct
+    ) {
+
+
+      if (button.disabled) {
+
+        return;
+
+      }
+
+
+      button.disabled = true;
+
+      answered++;
+
+
+      if (correct) {
+
+        button.style.backgroundColor =
+          "green";
+
+        button.style.color =
+          "white";
+
+        score++;
+
+      }
+
+      else {
+
+        button.style.backgroundColor =
+          "red";
+
+        button.style.color =
+          "white";
+
+      }
+
+
+      if (answered === 4) {
+
+        const result =
+          document.getElementById(
+            "result"
+          );
+
+
+        if (score === 4) {
+
+          result.innerHTML =
+            "🎉 Perfect! You scored 4/4. " +
+            "You can now complete Lesson 4!";
+
+
+          document.getElementById(
+            "completeBtn"
+          ).disabled = false;
+
+        }
+
+        else {
+
+          result.innerHTML =
+            "You scored " +
+            score +
+            "/4. Review the lesson and try again.";
+
+        }
+
+      }
+
+    }
+
+
+
+    /* =========================
+       QUESTION 1
+    ========================= */
+
+    document
+      .getElementById("q1Glucose")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            true
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("q1Protein")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            false
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("q1Oxygen")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            false
+          );
+
+        }
+      );
+
+
+
+    /* =========================
+       QUESTION 2
+    ========================= */
+
+    document
+      .getElementById("q2Protein")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            false
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("q2Starch")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            true
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("q2Oxygen")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            false
+          );
+
+        }
+      );
+
+
+
+    /* =========================
+       QUESTION 3
+    ========================= */
+
+    document
+      .getElementById("q3Oxygen")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            true
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("q3Carbon")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            false
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("q3Nitrogen")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            false
+          );
+
+        }
+      );
+
+
+
+    /* =========================
+       QUESTION 4
+    ========================= */
+
+    document
+      .getElementById("q4Starch")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            false
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("q4Cellulose")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            true
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById("q4Protein")
+      .addEventListener(
+        "click",
+        function() {
+
+          checkQuizAnswer(
+            this,
+            false
+          );
+
+        }
+      );
+
+
+
+    /* =========================
+       COMPLETE LESSON
+    ========================= */
+
+    document
+      .getElementById("completeBtn")
+      .addEventListener(
+        "click",
+        function() {
+
+
+          /*
+            If Lesson 4 is already
+            completed, continue to Lesson 5.
+          */
+
+          if (
+            isLessonCompleted(4)
+          ) {
+
+            window.location.href =
+              "lesson5.html";
+
+            return;
+
+          }
+
+
+          /*
+            Add 10 Cells.
+          */
+
+          const cells =
+            addCells(10);
+
+
+          /*
+            Mark Lesson 4 as complete.
+          */
+
+          completeLesson(4);
+
+
+          /*
+            Show completion message.
+          */
+
+          document.getElementById(
+            "result"
+          ).innerHTML =
+            "🎉 Lesson 4 completed! " +
+            "You earned 🧬 10 Cells! " +
+            "Total Cells: " +
+            cells;
+
+
+          /*
+            Change button into
+            Continue to Lesson 5.
+          */
+
+          const button =
+            document.getElementById(
+              "completeBtn"
+            );
+
+
+          button.disabled = false;
+
+
+          button.innerHTML =
+            "🔓 Continue to Lesson 5 →";
+
+
+          /*
+            Replace the old button
+            with a fresh button.
+          */
+
+          const newButton =
+            button.cloneNode(true);
+
+
+          button.parentNode.replaceChild(
+            newButton,
+            button
+          );
+
+
+          newButton.addEventListener(
+            "click",
+            function() {
+
+              window.location.href =
+                "lesson5.html";
+
+            }
+          );
+
+        }
+      );
+
+
+  </script>
+
+
+</body>
+
+</html>
