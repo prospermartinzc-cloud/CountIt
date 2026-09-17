@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f8f3;
+  color: #20352a;
+  line-height: 1.6;
+}
+
+/* Header */
+
+.app-header {
+  background: linear-gradient(135deg, #176b45, #2e9b68);
+  color: white;
+  text-align: center;
+  padding: 35px 15px;
+}
+
+.app-header h1 {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.app-header p {
+  font-size: 18px;
+}
+
+.app-header small {
+  opacity: 0.9;
+}
+
+/* Main container */
+
+.container {
+  width: 92%;
+  max-width: 750px;
+  margin: 25px auto;
+}
+
+/* Welcome card */
+
+.welcome-card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.welcome-card h2 {
+  color: #176b45;
+  margin-bottom: 10px;
+}
+
+.welcome-card p {
+  color: #52665a;
+  margin-bottom: 18px;
+}
+
+/* Buttons */
+
+button {
+  background: #176b45;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0d4d31;
+}
+
+/* Lessons */
+
+h2 {
+  color: #176b45;
+  margin-bottom: 5px;
+}
+
+.section-description {
+  color: #607568;
+  margin-bottom: 18px;
+}
+
+.lesson-list {
+  display: grid;
+  gap: 16px;
+}
+
+.lesson-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  border-left: 6px solid #2e9b68;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.lesson-card h3 {
+  color: #176b45;
+  margin-bottom: 6px;
+}
+
+.lesson-card p {
+  color: #52665a;
+  margin-bottom: 12px;
+}
+
+.lesson-card button {
+  width: 100%;
+}
+
+/* Premium lessons */
+
+.lesson-card.locked {
+  border-left-color: #d49b28;
+}
+
+.lesson-card.locked h3 {
+  color: #946b13;
+}
+
+.lesson-card.locked button {
+  background: #d49b28;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  color: #607568;
+  font-size: 14px;
+}
+
+/* Progress display */
+
+.progress-box {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.progress-box h2 {
+  margin-bottom: 12px;
+}
+
+.progress-box p {
+  margin: 6px 0;
+  color: #52665a;
+}
+
+/* Completed lessons */
+
+.lesson-card.completed {
+  border-left-color: #176b45;
+  background: #e9f8ee;
+}
+
+/* Locked lessons */
+
+.lesson-card.locked {
+  opacity: 0.75;
+}
+
+/* PROGRESS SECTION */
+
+.progress-section {
+  margin: 25px 0;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background: #e5e5e5;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+/* ACHIEVEMENTS */
+
+.achievements-section {
+  margin: 25px 0;
+}
+
+.achievement-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.achievement {
+  padding: 18px;
+  border-radius: 15px;
+  background: #e5e5e5;
+  text-align: center;
+  opacity: 0.45;
+  filter: grayscale(1);
+  transition: 0.3s;
+}
+
+.achievement span {
+  font-size: 35px;
+}
+
+.achievement h3 {
+  margin: 8px 0;
+}
+
+.achievement p {
+  margin: 0;
+}
+
+/* UNLOCKED */
+
+.achievement.unlocked {
+  opacity: 1;
+  filter: grayscale(0);
+  background: white;
+  transform: scale(1.02);
+}
+
+/* ============================= */
+/* COUNTIT APP NAVIGATION */
+/* ============================= */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 10px 5px;
+
+  background: white;
+
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.12);
+
+  z-index: 1000;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 3px;
+
+  font-size: 12px;
+
+  color: #777;
+
+  text-decoration: none;
+
+  padding: 5px 10px;
+}
+
+.nav-item span {
+  font-size: 22px;
+}
+
+.nav-item.active {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* =========================
+   CONTINUE LEARNING
+========================= */
+
+.continue-section {
+  margin: 25px 0;
+  padding: 22px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.continue-section h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.continue-section p {
+  margin-bottom: 20px;
+  color: #52665a;
+}
+
+.continue-section button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  background: #4caf50;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.continue-section button:active {
+  transform: scale(0.97);
+}
