@@ -18,216 +18,765 @@
 
 <body>
 
-  <header>
 
-    <h1>🌱 CountIt</h1>
+<!-- =========================
+     HEADER
+========================= -->
 
-    <p>Biology You Can Count</p>
+<header class="app-header">
 
-  </header>
+  <h1>🌱 CountIt</h1>
+
+  <p>Biology You Can Count</p>
+
+  <small>Your Learning Journey</small>
+
+</header>
 
 
-  <main class="container">
+<main class="container">
 
-    <h2>📚 Biology Lessons</h2>
+
+  <!-- =========================
+       STATS
+  ========================= -->
+
+  <section class="lesson-stats">
+
+
+    <div class="lesson-stat">
+
+      <span>🧬</span>
+
+      <strong id="cells">
+        10
+      </strong>
+
+      <p>Cells</p>
+
+    </div>
+
+
+    <div class="lesson-stat">
+
+      <span>🌱</span>
+
+      <strong id="gp">
+        0
+      </strong>
+
+      <p>GP</p>
+
+    </div>
+
+
+    <div class="lesson-stat">
+
+      <span>🔥</span>
+
+      <strong id="streak">
+        0
+      </strong>
+
+      <p>Streak</p>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =========================
+       PAGE INTRO
+  ========================= -->
+
+  <section class="welcome-card">
+
+    <h2>
+      📚 Your Biology Journey
+    </h2>
 
     <p>
-      Complete each lesson to unlock the next one.
+      Learn Biology step by step.
+      Complete a lesson to unlock the next one.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       LESSON LIST
+  ========================= -->
+
+  <section>
+
+    <h2>
+      🌱 Lessons
+    </h2>
+
+    <p class="section-description">
+      Keep learning and growing.
     </p>
 
 
-    <div id="lessonList"></div>
+    <div class="lesson-list">
 
-  </main>
 
+      <!-- LESSON 1 -->
 
-  <!-- BOTTOM NAVIGATION -->
+      <div
+        class="lesson-card"
+        id="lesson1Card">
 
-  <nav class="bottom-nav">
+        <h3>
+          Lesson 1 — Biology as a Science of Life
+        </h3>
 
-    <a
-      href="index.html"
-      class="nav-item">
+        <p>
+          Discover what Biology is, what makes
+          something living and why Biology matters.
+        </p>
 
-      <span>🏠</span>
-      Home
+        <button
+          type="button"
+          id="lesson1Button"
+          onclick="openLesson1()">
 
-    </a>
+          🚀 Start Lesson
 
+        </button>
 
-    <a
-      href="lessons.html"
-      class="nav-item active">
+      </div>
 
-      <span>📚</span>
-      Lessons
 
-    </a>
+      <!-- LESSON 2 -->
 
+      <div
+        class="lesson-card locked"
+        id="lesson2Card">
 
-    <a
-      href="index.html#achievements"
-      class="nav-item">
+        <h3>
+          Lesson 2 — Photosynthesis
+        </h3>
 
-      <span>🏆</span>
-      Achievements
+        <p>
+          Discover how green plants make food
+          using light energy.
+        </p>
 
-    </a>
+        <button
+          type="button"
+          id="lesson2Button"
+          onclick="openLesson2()">
 
+          🔒 Locked
 
-    <a
-      href="profile.html"
-      class="nav-item">
+        </button>
 
-      <span>👤</span>
-      Profile
+      </div>
 
-    </a>
 
-  </nav>
+      <!-- LESSON 3 -->
 
+      <div
+        class="lesson-card locked"
+        id="lesson3Card">
 
-  <script>
+        <h3>
+          Lesson 3 — Food Chain
+        </h3>
 
-    const lessonTitles = [
+        <p>
+          Explore how energy moves between
+          organisms in an ecosystem.
+        </p>
 
-      "Habitat",
+        <button
+          type="button"
+          id="lesson3Button"
+          onclick="openLesson3()">
 
-      "Factors Affecting Photosynthesis",
+          🔒 Locked
 
-      "Investigating Photosynthesis",
+        </button>
 
-      "Products of Photosynthesis",
+      </div>
 
-      "Structure of a Leaf",
 
-      "Gas Exchange in Plants",
+      <!-- LESSON 4 -->
 
-      "Transpiration",
+      <div
+        class="lesson-card locked"
+        id="lesson4Card">
 
-      "Transport of Water and Mineral Salts",
+        <h3>
+          Lesson 4 — Cell Structure
+        </h3>
 
-      "Translocation of Manufactured Food",
+        <p>
+          Explore the structures that make up
+          living cells.
+        </p>
 
-      "Mineral Nutrition in Plants"
+        <button
+          type="button"
+          id="lesson4Button"
+          onclick="openLesson4()">
 
-    ];
+          🔒 Locked
 
+        </button>
 
-    const lessonList =
-      document.getElementById("lessonList");
+      </div>
 
 
-    for (let i = 1; i <= 10; i++) {
+      <!-- LESSON 5 -->
 
-      const completed =
-        localStorage.getItem(
-          "lesson" + i + "Completed"
-        ) === "true";
+      <div
+        class="lesson-card locked"
+        id="lesson5Card">
 
+        <h3>
+          Lesson 5 — Osmosis
+        </h3>
 
-      let unlocked = false;
+        <p>
+          Learn how water moves across
+          partially permeable membranes.
+        </p>
 
+        <button
+          type="button"
+          id="lesson5Button"
+          onclick="openLesson5()">
 
-      /*
-        Lesson 1 is always unlocked.
-        Every other lesson requires
-        completion of the previous lesson.
-      */
+          🔒 Locked
 
-      if (i === 1) {
+        </button>
 
-        unlocked = true;
+      </div>
 
-      } else {
 
-        unlocked =
-          localStorage.getItem(
-            "lesson" + (i - 1) + "Completed"
-          ) === "true";
+      <!-- LESSON 6 -->
 
-      }
+      <div class="lesson-card locked">
 
+        <h3>
+          Lesson 6 — Reproduction ⭐
+        </h3>
 
-      const card =
-        document.createElement("div");
+        <p>
+          Explore reproduction in living organisms.
+        </p>
 
-      card.className = "lesson-card";
+        <button
+          type="button"
+          disabled>
 
+          🔒 CountIt Plus
 
-      if (completed) {
+        </button>
 
-        card.classList.add("completed");
+      </div>
 
-      }
 
+      <!-- LESSON 7 -->
 
-      if (!unlocked) {
+      <div class="lesson-card locked">
 
-        card.classList.add("locked");
+        <h3>
+          Lesson 7 — Genetics ⭐
+        </h3>
 
-      }
+        <p>
+          Discover how characteristics are inherited.
+        </p>
 
+        <button
+          type="button"
+          disabled>
 
-      let icon = "🔒";
+          🔒 CountIt Plus
 
-      let status = "Locked";
+        </button>
 
+      </div>
 
-      if (completed) {
 
-        icon = "✅";
+      <!-- LESSON 8 -->
 
-        status = "Completed";
+      <div class="lesson-card locked">
 
-      } else if (unlocked) {
+        <h3>
+          Lesson 8 — Ecology ⭐
+        </h3>
 
-        icon = "▶️";
+        <p>
+          Explore relationships between organisms
+          and their environment.
+        </p>
 
-        status = "Start Lesson";
+        <button
+          type="button"
+          disabled>
 
-      }
+          🔒 CountIt Plus
 
+        </button>
 
-      card.innerHTML = `
+      </div>
 
-        <div>
 
-          <h3>
-            ${icon} Lesson ${i}
-          </h3>
+      <!-- LESSON 9 -->
 
-          <p>
-            ${lessonTitles[i - 1]}
-          </p>
+      <div class="lesson-card locked">
 
-          <small>
-            ${status}
-          </small>
+        <h3>
+          Lesson 9 — Respiration ⭐
+        </h3>
 
-        </div>
+        <p>
+          Learn how organisms release energy
+          from food.
+        </p>
 
-      `;
+        <button
+          type="button"
+          disabled>
 
+          🔒 CountIt Plus
 
-      if (unlocked) {
+        </button>
 
-        card.onclick =
-          function() {
+      </div>
 
-            window.location.href =
-              "lesson" + i + ".html";
 
-          };
+      <!-- LESSON 10 -->
 
-      }
+      <div class="lesson-card locked">
 
+        <h3>
+          Lesson 10 — Nutrition ⭐
+        </h3>
 
-      lessonList.appendChild(card);
+        <p>
+          Explore how organisms obtain and use
+          nutrients.
+        </p>
 
-    }
+        <button
+          type="button"
+          disabled>
 
-  </script>
+          🔒 CountIt Plus
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<!-- =========================
+     BOTTOM NAV
+========================= -->
+
+<nav class="bottom-nav">
+
+
+  <a
+    href="index.html"
+    class="nav-item">
+
+    <span>🏠</span>
+
+    Home
+
+  </a>
+
+
+  <a
+    href="lessons.html"
+    class="nav-item active">
+
+    <span>📚</span>
+
+    Lessons
+
+  </a>
+
+
+  <a
+    href="achievements.html"
+    class="nav-item">
+
+    <span>🏆</span>
+
+    Achievements
+
+  </a>
+
+
+  <a
+    href="profile.html"
+    class="nav-item">
+
+    <span>👤</span>
+
+    Profile
+
+  </a>
+
+
+</nav>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   GET DATA
+========================= */
+
+function getCells() {
+
+  return Number(
+    localStorage.getItem("cells")
+  ) || 0;
+
+}
+
+
+function getGP() {
+
+  return Number(
+    localStorage.getItem("gp")
+  ) || 0;
+
+}
+
+
+function getStreak() {
+
+  return Number(
+    localStorage.getItem("streak")
+  ) || 0;
+
+}
+
+
+/* =========================
+   CHECK COMPLETION
+========================= */
+
+function isCompleted(lesson) {
+
+  return (
+    localStorage.getItem(
+      "lesson" +
+      lesson +
+      "Completed"
+    ) === "true"
+  );
+
+}
+
+
+/* =========================
+   UPDATE STATS
+========================= */
+
+function updateStats() {
+
+  document.getElementById(
+    "cells"
+  ).textContent =
+    getCells();
+
+
+  document.getElementById(
+    "gp"
+  ).textContent =
+    getGP();
+
+
+  document.getElementById(
+    "streak"
+  ).textContent =
+    getStreak();
+
+}
+
+
+/* =========================
+   OPEN LESSONS
+========================= */
+
+function openLesson1() {
+
+  window.location.href =
+    "lesson1.html";
+
+}
+
+
+function openLesson2() {
+
+  if (
+    isCompleted(1)
+  ) {
+
+    window.location.href =
+      "lesson2.html";
+
+  } else {
+
+    alert(
+      "🔒 Complete Lesson 1 first."
+    );
+
+  }
+
+}
+
+
+function openLesson3() {
+
+  if (
+    isCompleted(2)
+  ) {
+
+    window.location.href =
+      "lesson3.html";
+
+  } else {
+
+    alert(
+      "🔒 Complete Lesson 2 first."
+    );
+
+  }
+
+}
+
+
+function openLesson4() {
+
+  if (
+    isCompleted(3)
+  ) {
+
+    window.location.href =
+      "lesson4.html";
+
+  } else {
+
+    alert(
+      "🔒 Complete Lesson 3 first."
+    );
+
+  }
+
+}
+
+
+function openLesson5() {
+
+  if (
+    isCompleted(4)
+  ) {
+
+    window.location.href =
+      "lesson5.html";
+
+  } else {
+
+    alert(
+      "🔒 Complete Lesson 4 first."
+    );
+
+  }
+
+}
+
+
+/* =========================
+   UNLOCK LESSONS
+========================= */
+
+function updateLessons() {
+
+
+  /* LESSON 1 */
+
+  if (
+    isCompleted(1)
+  ) {
+
+    document
+      .getElementById(
+        "lesson1Card"
+      )
+      .classList.add(
+        "completed"
+      );
+
+
+    document.getElementById(
+      "lesson1Button"
+    ).textContent =
+      "✅ Completed";
+
+  }
+
+
+  /* LESSON 2 */
+
+  if (
+    isCompleted(1)
+  ) {
+
+    var card2 =
+      document.getElementById(
+        "lesson2Card"
+      );
+
+
+    var button2 =
+      document.getElementById(
+        "lesson2Button"
+      );
+
+
+    card2.classList.remove(
+      "locked"
+    );
+
+
+    button2.textContent =
+      isCompleted(2)
+        ? "✅ Completed"
+        : "🚀 Start Lesson";
+
+  }
+
+
+  /* LESSON 3 */
+
+  if (
+    isCompleted(2)
+  ) {
+
+    var card3 =
+      document.getElementById(
+        "lesson3Card"
+      );
+
+
+    var button3 =
+      document.getElementById(
+        "lesson3Button"
+      );
+
+
+    card3.classList.remove(
+      "locked"
+    );
+
+
+    button3.textContent =
+      isCompleted(3)
+        ? "✅ Completed"
+        : "🚀 Start Lesson";
+
+  }
+
+
+  /* LESSON 4 */
+
+  if (
+    isCompleted(3)
+  ) {
+
+    var card4 =
+      document.getElementById(
+        "lesson4Card"
+      );
+
+
+    var button4 =
+      document.getElementById(
+        "lesson4Button"
+      );
+
+
+    card4.classList.remove(
+      "locked"
+    );
+
+
+    button4.textContent =
+      isCompleted(4)
+        ? "✅ Completed"
+        : "🚀 Start Lesson";
+
+  }
+
+
+  /* LESSON 5 */
+
+  if (
+    isCompleted(4)
+  ) {
+
+    var card5 =
+      document.getElementById(
+        "lesson5Card"
+      );
+
+
+    var button5 =
+      document.getElementById(
+        "lesson5Button"
+      );
+
+
+    card5.classList.remove(
+      "locked"
+    );
+
+
+    button5.textContent =
+      isCompleted(5)
+        ? "✅ Completed"
+        : "🚀 Start Lesson";
+
+  }
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+updateStats();
+
+updateLessons();
+
+
+</script>
+
 
 </body>
 
