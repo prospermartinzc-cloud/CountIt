@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Achievements | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+  <header>
+
+    <h1>🌱 CountIt</h1>
+
+    <p>Biology You Can Count</p>
+
+  </header>
+
+
+  <main class="container">
+
+    <h2>🏆 Achievements</h2>
+
+    <p>
+      Keep learning and unlock them all!
+    </p>
+
+
+    <section class="achievements-section">
+
+      <div class="achievement-grid">
+
+
+        <!-- ACHIEVEMENT 1 -->
+
+        <div
+          id="achievement1"
+          class="achievement">
+
+          <span>🌱</span>
+
+          <h3>First Step</h3>
+
+          <p>
+            Complete your first lesson.
+          </p>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT 2 -->
+
+        <div
+          id="achievement2"
+          class="achievement">
+
+          <span>🧬</span>
+
+          <h3>Cell Collector</h3>
+
+          <p>
+            Earn 50 Cells.
+          </p>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT 3 -->
+
+        <div
+          id="achievement3"
+          class="achievement">
+
+          <span>🔬</span>
+
+          <h3>Biology Explorer</h3>
+
+          <p>
+            Complete 5 lessons.
+          </p>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT 4 -->
+
+        <div
+          id="achievement4"
+          class="achievement">
+
+          <span>🔥</span>
+
+          <h3>3-Day Learner</h3>
+
+          <p>
+            Reach a 3-day streak.
+          </p>
+
+        </div>
+
+
+        <!-- ACHIEVEMENT 5 -->
+
+        <div
+          id="achievement5"
+          class="achievement">
+
+          <span>🏆</span>
+
+          <h3>CountIt Master</h3>
+
+          <p>
+            Complete all 10 lessons.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <nav class="bottom-nav">
+
+
+    <a
+      href="index.html"
+      class="nav-item">
+
+      <span>🏠</span>
+      Home
+
+    </a>
+
+
+    <a
+      href="lessons.html"
+      class="nav-item">
+
+      <span>📚</span>
+      Lessons
+
+    </a>
+
+
+    <a
+      href="achievements.html"
+      class="nav-item active">
+
+      <span>🏆</span>
+      Achievements
+
+    </a>
+
+
+    <a
+      href="profile.html"
+      class="nav-item">
+
+      <span>👤</span>
+      Profile
+
+    </a>
+
+
+  </nav>
+
+
+  <script>
+
+    /*
+      Get saved Cells
+    */
+
+    const cells =
+      Number(localStorage.getItem("cells")) || 0;
+
+
+    /*
+      Get saved streak
+    */
+
+    const streak =
+      Number(localStorage.getItem("streak")) || 0;
+
+
+    /*
+      Count completed lessons
+    */
+
+    let completedLessons = 0;
+
+
+    for (let i = 1; i <= 10; i++) {
+
+      if (
+        localStorage.getItem(
+          "lesson" + i + "Completed"
+        ) === "true"
+      ) {
+
+        completedLessons++;
+
+      }
+
+    }
+
+
+    /*
+      Unlock an achievement
+    */
+
+    function unlock(number) {
+
+      document
+        .getElementById(
+          "achievement" + number
+        )
+        .classList.add("unlocked");
+
+    }
+
+
+    /*
+      First Step
+    */
+
+    if (completedLessons >= 1) {
+
+      unlock(1);
+
+    }
+
+
+    /*
+      Cell Collector
+    */
+
+    if (cells >= 50) {
+
+      unlock(2);
+
+    }
+
+
+    /*
+      Biology Explorer
+    */
+
+    if (completedLessons >= 5) {
+
+      unlock(3);
+
+    }
+
+
+    /*
+      3-Day Learner
+    */
+
+    if (streak >= 3) {
+
+      unlock(4);
+
+    }
+
+
+    /*
+      CountIt Master
+    */
+
+    if (completedLessons === 10) {
+
+      unlock(5);
+
+    }
+
+  </script>
+
+</body>
+
+</html>
