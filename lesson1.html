@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 1 | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+  <header>
+
+    <h1>🌱 CountIt</h1>
+
+    <p>
+      Biology You Can Count
+    </p>
+
+  </header>
+
+
+  <main class="container">
+
+
+    <a
+      href="index.html"
+      class="back-button">
+
+      ← Back to Lessons
+
+    </a>
+
+
+    <section class="lesson-content">
+
+
+      <h2>
+        Lesson 1: Habitat
+      </h2>
+
+
+      <h3>
+        What is a habitat?
+      </h3>
+
+
+      <p>
+
+        A habitat is the natural place where an organism lives,
+        obtains food, reproduces, and finds protection.
+
+      </p>
+
+
+      <h3>
+        🌾 Savannah Habitat
+      </h3>
+
+
+      <p>
+
+        A savannah is a habitat made up mainly of grasses with
+        scattered trees.
+
+      </p>
+
+
+      <h3>
+        🌳 Forest Habitat
+      </h3>
+
+
+      <p>
+
+        A forest is a habitat dominated by many trees and other plants.
+
+      </p>
+
+
+      <h2>
+        🧠 Quick Quiz
+      </h2>
+
+
+      <p>
+
+        Which habitat is mainly made up of grasses with scattered trees?
+
+      </p>
+
+
+      <!-- QUIZ BUTTONS -->
+
+      <button id="savannahButton">
+        Savannah
+      </button>
+
+
+      <button id="forestButton">
+        Forest
+      </button>
+
+
+      <p id="quizResult"></p>
+
+
+      <!-- CONTINUE BUTTON -->
+
+      <button
+        id="continueButton"
+        style="display: none;">
+
+        🔓 Continue to Lesson 2 →
+
+      </button>
+
+
+    </section>
+
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      © 2026 CountIt
+    </p>
+
+  </footer>
+
+
+
+  <!-- COUNTIT SHARED JAVASCRIPT -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+
+    /* =========================
+       GET BUTTONS
+    ========================= */
+
+    const savannahButton =
+      document.getElementById(
+        "savannahButton"
+      );
+
+
+    const forestButton =
+      document.getElementById(
+        "forestButton"
+      );
+
+
+    const continueButton =
+      document.getElementById(
+        "continueButton"
+      );
+
+
+    const quizResult =
+      document.getElementById(
+        "quizResult"
+      );
+
+
+
+    /* =========================
+       SAVANNAH BUTTON
+    ========================= */
+
+    savannahButton.addEventListener(
+      "click",
+      function() {
+
+
+        /*
+          Check if Lesson 1
+          has already been completed.
+        */
+
+        if (
+          isLessonCompleted(1)
+        ) {
+
+          quizResult.textContent =
+            "✅ Lesson 1 is already completed!";
+
+
+          continueButton.style.display =
+            "block";
+
+
+          return;
+
+        }
+
+
+        /*
+          Add 10 Cells.
+        */
+
+        const cells =
+          addCells(10);
+
+
+        /*
+          Complete Lesson 1.
+        */
+
+        completeLesson(1);
+
+
+        /*
+          Show success message.
+        */
+
+        quizResult.textContent =
+          "🎉 Correct! You earned 10 Cells! " +
+          "Total Cells: " +
+          cells;
+
+
+        /*
+          Show Continue button.
+        */
+
+        continueButton.style.display =
+          "block";
+
+      }
+
+    );
+
+
+
+    /* =========================
+       FOREST BUTTON
+    ========================= */
+
+    forestButton.addEventListener(
+      "click",
+      function() {
+
+        quizResult.textContent =
+          "❌ Try again! That is not the correct answer.";
+
+      }
+
+    );
+
+
+
+    /* =========================
+       CONTINUE TO LESSON 2
+    ========================= */
+
+    continueButton.addEventListener(
+      "click",
+      function() {
+
+        window.location.href =
+          "lesson2.html";
+
+      }
+
+    );
+
+
+  </script>
+
+
+</body>
+
+</html>
