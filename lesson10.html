@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 10 | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>🌱 CountIt</h1>
+    <p>Biology You Can Count</p>
+  </header>
+
+  <main class="lesson">
+
+    <a href="index.html" class="back-button">
+      ← Back to Lessons
+    </a>
+
+    <h2>Lesson 10</h2>
+
+    <h3>🧂 Mineral Nutrition in Plants</h3>
+
+    <p>
+      Plants need certain mineral ions from the soil for healthy
+      growth and development.
+    </p>
+
+    <p>
+      Mineral ions are absorbed mainly by the roots and are
+      transported around the plant through the xylem.
+    </p>
+
+    <h3>🌱 Essential Mineral Ions</h3>
+
+    <p>
+      Different mineral ions have different functions in plants.
+    </p>
+
+    <p>
+      <strong>1. Nitrate ions</strong>
+    </p>
+
+    <p>
+      Nitrate ions are needed for the production of
+      <strong>amino acids</strong>.
+    </p>
+
+    <p>
+      Amino acids are used to make proteins, which are needed
+      for growth and repair.
+    </p>
+
+    <p>
+      <strong>2. Magnesium ions</strong>
+    </p>
+
+    <p>
+      Magnesium ions are needed to make
+      <strong>chlorophyll</strong>.
+    </p>
+
+    <p>
+      Chlorophyll absorbs light energy needed for photosynthesis.
+    </p>
+
+    <p>
+      <strong>3. Phosphate ions</strong>
+    </p>
+
+    <p>
+      Phosphate ions are important for healthy root development
+      and are also involved in energy-transfer processes.
+    </p>
+
+    <h3>⚠️ Mineral Deficiency</h3>
+
+    <p>
+      When a plant does not receive enough of an essential
+      mineral ion, it may show deficiency symptoms.
+    </p>
+
+    <p>
+      For example, a lack of nitrate ions can cause
+      <strong>poor growth</strong> and yellowing of older leaves.
+    </p>
+
+    <p>
+      A lack of magnesium can cause
+      <strong>yellowing of leaves</strong> because less chlorophyll
+      can be produced.
+    </p>
+
+    <div class="note">
+
+      <strong>🧠 WASSCE Reminder:</strong>
+
+      <p>
+        <strong>Nitrate ions →</strong>
+        amino acids → proteins → growth.
+      </p>
+
+      <p>
+        <strong>Magnesium ions →</strong>
+        chlorophyll → photosynthesis.
+      </p>
+
+      <p>
+        <strong>Phosphate ions →</strong>
+        healthy root development and energy-related processes.
+      </p>
+
+      <p>
+        <strong>Mineral deficiency →</strong>
+        abnormal growth or visible symptoms in plants.
+      </p>
+
+    </div>
+
+    <hr>
+
+    <h2>📝 Lesson 10 Quiz</h2>
+
+    <p>
+      <strong>Get all four correct to complete CountIt.</strong>
+    </p>
+
+    <!-- QUESTION 1 -->
+
+    <div class="question">
+
+      <p>
+        1. Which mineral ion is needed for the production
+        of amino acids?
+      </p>
+
+      <button id="q1Nitrate">
+        Nitrate ions
+      </button>
+
+      <button id="q1Magnesium">
+        Magnesium ions
+      </button>
+
+      <button id="q1Phosphate">
+        Phosphate ions
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question">
+
+      <p>
+        2. Which mineral ion is needed to make chlorophyll?
+      </p>
+
+      <button id="q2Nitrate">
+        Nitrate ions
+      </button>
+
+      <button id="q2Magnesium">
+        Magnesium ions
+      </button>
+
+      <button id="q2Phosphate">
+        Phosphate ions
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question">
+
+      <p>
+        3. What can happen when a plant lacks nitrate ions?
+      </p>
+
+      <button id="q3Chlorophyll">
+        Increased chlorophyll production
+      </button>
+
+      <button id="q3PoorGrowth">
+        Poor growth
+      </button>
+
+      <button id="q3Photosynthesis">
+        Faster photosynthesis
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question">
+
+      <p>
+        4. Which mineral ion is associated with healthy
+        root development?
+      </p>
+
+      <button id="q4Phosphate">
+        Phosphate ions
+      </button>
+
+      <button id="q4Magnesium">
+        Magnesium ions
+      </button>
+
+      <button id="q4Nitrate">
+        Nitrate ions
+      </button>
+
+    </div>
+
+
+    <div id="result"></div>
+
+
+    <button id="completeBtn" disabled>
+      🔒 Complete Lesson
+    </button>
+
+  </main>
+
+
+  <!-- COUNTIT APP -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+    let score = 0;
+    let answered = 0;
+
+
+    function checkQuizAnswer(button, correct) {
+
+      if (button.disabled) {
+        return;
+      }
+
+      button.disabled = true;
+
+      answered++;
+
+
+      if (correct) {
+
+        button.style.backgroundColor = "green";
+        button.style.color = "white";
+
+        score++;
+
+      } else {
+
+        button.style.backgroundColor = "red";
+        button.style.color = "white";
+
+      }
+
+
+      if (answered === 4) {
+
+        const result =
+          document.getElementById("result");
+
+
+        if (score === 4) {
+
+          result.innerHTML =
+            "🎉 Perfect! You scored 4/4. " +
+            "You can now complete CountIt!";
+
+          document.getElementById("completeBtn")
+            .disabled = false;
+
+        } else {
+
+          result.innerHTML =
+            "You scored " + score +
+            "/4. Review the lesson and try again.";
+
+        }
+
+      }
+
+    }
+
+
+    /*
+      QUESTION 1
+    */
+
+    document.getElementById("q1Nitrate")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q1Magnesium")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q1Phosphate")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 2
+    */
+
+    document.getElementById("q2Nitrate")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q2Magnesium")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q2Phosphate")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 3
+    */
+
+    document.getElementById("q3Chlorophyll")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q3PoorGrowth")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q3Photosynthesis")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 4
+    */
+
+    document.getElementById("q4Phosphate")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q4Magnesium")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q4Nitrate")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      COMPLETE COUNTIT
+    */
+
+    const completeBtn =
+      document.getElementById("completeBtn");
+
+
+    completeBtn.addEventListener(
+      "click",
+      function() {
+
+        /*
+          If Lesson 10 was already completed,
+          show the final celebration.
+        */
+
+        if (isLessonCompleted(10)) {
+
+          showFinalCelebration();
+
+          return;
+
+        }
+
+
+        /*
+          Add 10 Cells
+        */
+
+        addCells(10);
+
+
+        /*
+          Save Lesson 10 completion
+        */
+
+        completeLesson(10);
+
+
+        /*
+          Show final celebration
+        */
+
+        showFinalCelebration();
+
+      }
+    );
+
+
+    /*
+      FINAL CELEBRATION
+    */
+
+    function showFinalCelebration() {
+
+      const cells =
+        getCells();
+
+
+      document.getElementById("result").innerHTML = `
+
+        <div class="completion-box">
+
+          <div class="celebration-icon">
+            🎉
+          </div>
+
+          <h2>
+            COUNTIT COMPLETE!
+          </h2>
+
+          <p>
+            🏆 All 10 lessons completed!
+          </p>
+
+          <p class="reward">
+            🧬 +10 Cells
+          </p>
+
+          <p>
+            📈 100% Progress
+          </p>
+
+          <p>
+            🔥 Keep your streak going!
+          </p>
+
+          <p>
+            🏆 <strong>CountIt Master</strong> unlocked!
+          </p>
+
+          <p>
+            You have completed the first
+            version of CountIt. 🌱
+          </p>
+
+          <p>
+            <strong>
+              Total Cells: ${cells}
+            </strong>
+          </p>
+
+        </div>
+
+      `;
+
+
+      /*
+        Change button into
+        final CountIt button
+      */
+
+      completeBtn.disabled = false;
+
+      completeBtn.innerHTML =
+        "🏆 Finish CountIt";
+
+
+      /*
+        Replace the button so the
+        old completion listener
+        cannot run again.
+      */
+
+      const newButton =
+        completeBtn.cloneNode(true);
+
+
+      completeBtn.parentNode.replaceChild(
+        newButton,
+        completeBtn
+      );
+
+
+      /*
+        Return to CountIt Home
+      */
+
+      newButton.addEventListener(
+        "click",
+        function() {
+
+          window.location.href =
+            "index.html";
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+
+</html>
