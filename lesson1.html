@@ -13,275 +13,1515 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <style>
+
+    .countit-stats {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .countit-stat {
+      flex: 1;
+      background: white;
+      padding: 18px 10px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .countit-stat span {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .countit-stat strong {
+      display: block;
+      font-size: 22px;
+      color: #176b45;
+    }
+
+    .countit-stat p {
+      margin: 3px 0 0;
+      font-size: 13px;
+      color: #52665a;
+    }
+
+    #answers button {
+      background: #176b45;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #answers button:active {
+      transform: scale(0.98);
+    }
+
+    #nextButton {
+      margin-top: 18px;
+    }
+
+    #quizFeedback {
+      padding: 12px;
+      border-radius: 12px;
+      background: #e9f8ee;
+      color: #176b45;
+    }
+
+  </style>
+
 </head>
 
 
 <body>
 
 
-  <header>
+<header class="app-header">
 
-    <h1>🌱 CountIt</h1>
+  <h1>🌱 CountIt</h1>
 
-    <p>
-      Biology You Can Count
-    </p>
+  <p>Biology You Can Count</p>
 
-  </header>
+  <small>Lesson 1</small>
 
-
-  <main class="container">
+</header>
 
 
-    <a
-      href="index.html"
-      class="back-button">
-
-      ← Back to Lessons
-
-    </a>
+<main class="container">
 
 
-    <section class="lesson-content">
+  <!-- CELLS + GP -->
+
+  <section class="countit-stats">
+
+    <div class="countit-stat">
+
+      <span>🧬</span>
+
+      <strong id="cellsDisplay">
+        10
+      </strong>
+
+      <p>Cells</p>
+
+    </div>
 
 
-      <h2>
-        Lesson 1: Habitat
-      </h2>
+    <div class="countit-stat">
+
+      <span>🌱</span>
+
+      <strong id="gpDisplay">
+        0
+      </strong>
+
+      <p>GP</p>
+
+    </div>
+
+  </section>
 
 
-      <h3>
-        What is a habitat?
-      </h3>
+  <!-- LESSON TITLE -->
 
+  <section class="welcome-card">
 
-      <p>
-
-        A habitat is the natural place where an organism lives,
-        obtains food, reproduces, and finds protection.
-
-      </p>
-
-
-      <h3>
-        🌾 Savannah Habitat
-      </h3>
-
-
-      <p>
-
-        A savannah is a habitat made up mainly of grasses with
-        scattered trees.
-
-      </p>
-
-
-      <h3>
-        🌳 Forest Habitat
-      </h3>
-
-
-      <p>
-
-        A forest is a habitat dominated by many trees and other plants.
-
-      </p>
-
-
-      <h2>
-        🧠 Quick Quiz
-      </h2>
-
-
-      <p>
-
-        Which habitat is mainly made up of grasses with scattered trees?
-
-      </p>
-
-
-      <!-- QUIZ BUTTONS -->
-
-      <button id="savannahButton">
-        Savannah
-      </button>
-
-
-      <button id="forestButton">
-        Forest
-      </button>
-
-
-      <p id="quizResult"></p>
-
-
-      <!-- CONTINUE BUTTON -->
-
-      <button
-        id="continueButton"
-        style="display: none;">
-
-        🔓 Continue to Lesson 2 →
-
-      </button>
-
-
-    </section>
-
-
-  </main>
-
-
-  <footer>
+    <h2>
+      🧬 Biology as a Science of Life
+    </h2>
 
     <p>
-      © 2026 CountIt
+      Welcome to your first CountIt lesson!
+      In this lesson, you will discover what
+      Biology is, what makes something living,
+      and why Biology is important.
     </p>
 
-  </footer>
+  </section>
 
 
+  <!-- LESSON 1 -->
 
-  <!-- COUNTIT SHARED JAVASCRIPT -->
+  <section class="welcome-card">
 
-  <script src="app.js"></script>
+    <h2>1. What is Biology?</h2>
 
+    <p>
+      <strong>Biology</strong> is the branch of science
+      that studies living organisms and life.
+    </p>
 
-  <script>
+    <p>
+      The word Biology comes from two Greek words:
+      <strong>bios</strong>, meaning life, and
+      <strong>logos</strong>, meaning study.
+    </p>
 
-
-    /* =========================
-       GET BUTTONS
-    ========================= */
-
-    const savannahButton =
-      document.getElementById(
-        "savannahButton"
-      );
-
-
-    const forestButton =
-      document.getElementById(
-        "forestButton"
-      );
+  </section>
 
 
-    const continueButton =
-      document.getElementById(
-        "continueButton"
-      );
+  <!-- LESSON 2 -->
+
+  <section class="welcome-card">
+
+    <h2>2. Biology as a Science</h2>
+
+    <p>
+      Biology is a science because biologists use
+      observation, evidence, experiments, measurements
+      and logical reasoning to study living things.
+    </p>
+
+    <p>
+      Scientists do not depend only on opinions.
+      They collect evidence and use it to reach
+      conclusions.
+    </p>
+
+  </section>
 
 
-    const quizResult =
-      document.getElementById(
-        "quizResult"
-      );
+  <!-- LESSON 3 -->
+
+  <section class="welcome-card">
+
+    <h2>3. What is Life?</h2>
+
+    <p>
+      Life refers to the condition that distinguishes
+      living organisms from non-living things.
+    </p>
+
+    <p>
+      Living organisms carry out several important
+      life processes that allow them to survive,
+      grow and reproduce.
+    </p>
+
+  </section>
 
 
+  <!-- LESSON 4 -->
 
-    /* =========================
-       SAVANNAH BUTTON
-    ========================= */
+  <section class="welcome-card">
 
-    savannahButton.addEventListener(
-      "click",
-      function() {
+    <h2>4. Characteristics of Living Organisms</h2>
 
+    <p>
+      Living organisms show several characteristics.
+      A common way of remembering them is
+      <strong>MRS GREN</strong>.
+    </p>
 
-        /*
-          Check if Lesson 1
-          has already been completed.
-        */
+    <p><strong>M</strong> — Movement</p>
 
-        if (
-          isLessonCompleted(1)
-        ) {
+    <p><strong>R</strong> — Respiration</p>
 
-          quizResult.textContent =
-            "✅ Lesson 1 is already completed!";
+    <p><strong>S</strong> — Sensitivity</p>
 
+    <p><strong>G</strong> — Growth</p>
 
-          continueButton.style.display =
-            "block";
+    <p><strong>R</strong> — Reproduction</p>
 
+    <p><strong>E</strong> — Excretion</p>
 
-          return;
+    <p><strong>N</strong> — Nutrition</p>
 
-        }
+  </section>
 
 
-        /*
-          Add 10 Cells.
-        */
+  <!-- LESSON 5 -->
 
-        const cells =
-          addCells(10);
+  <section class="welcome-card">
+
+    <h2>5. Living and Non-living Things</h2>
+
+    <p>
+      Living organisms carry out life processes.
+      Examples include humans, plants, animals,
+      fungi and microorganisms.
+    </p>
+
+    <p>
+      Non-living things do not carry out all the
+      characteristics of life.
+    </p>
+
+    <p>
+      For example, a car can move, but movement
+      alone does not make it a living organism.
+    </p>
+
+  </section>
 
 
-        /*
-          Complete Lesson 1.
-        */
+  <!-- LESSON 6 -->
 
-        completeLesson(1);
+  <section class="welcome-card">
+
+    <h2>6. How Biology is Studied</h2>
+
+    <p>
+      Biologists use scientific investigation to
+      understand life.
+    </p>
+
+    <p>
+      They may observe organisms, ask questions,
+      collect information, carry out experiments,
+      record results and draw conclusions.
+    </p>
+
+  </section>
 
 
-        /*
-          Show success message.
-        */
+  <!-- LESSON 7 -->
 
-        quizResult.textContent =
-          "🎉 Correct! You earned 10 Cells! " +
-          "Total Cells: " +
-          cells;
+  <section class="welcome-card">
+
+    <h2>7. Importance of Biology</h2>
+
+    <p>
+      Biology helps us understand living organisms
+      and the world around us.
+    </p>
+
+    <p>
+      It contributes to areas such as medicine,
+      agriculture, environmental protection,
+      biotechnology and conservation.
+    </p>
+
+  </section>
 
 
-        /*
-          Show Continue button.
-        */
+  <!-- LESSON 8 -->
 
-        continueButton.style.display =
-          "block";
+  <section class="welcome-card">
 
-      }
+    <h2>8. Careers Related to Biology</h2>
 
+    <p>
+      Biology can lead to many areas of study and
+      work, including medicine, nursing, pharmacy,
+      veterinary science, agriculture, environmental
+      science, biotechnology and biological research.
+    </p>
+
+  </section>
+
+
+  <!-- LESSON 9 -->
+
+  <section class="welcome-card">
+
+    <h2>9. Biology in Everyday Life</h2>
+
+    <p>
+      Biology is part of everyday life.
+    </p>
+
+    <p>
+      Understanding exercise, nutrition, disease,
+      plants, animals, food production and the
+      environment all involve Biology.
+    </p>
+
+  </section>
+
+
+  <!-- QUIZ INTRO -->
+
+  <section
+    class="welcome-card"
+    id="quizIntro">
+
+    <h2>🧠 Lesson Quiz</h2>
+
+    <p>
+      Test what you have learned from Lesson 1.
+    </p>
+
+    <p>
+      There are <strong>10 questions</strong>.
+    </p>
+
+    <p>
+      🎯 Complete the quiz:
+      <strong>+20 Cells</strong>
+    </p>
+
+    <p>
+      🌱 Lesson completion:
+      <strong>+100 GP</strong>
+    </p>
+
+    <button
+      type="button"
+      onclick="startQuiz()">
+
+      🚀 Start Quiz
+
+    </button>
+
+  </section>
+
+
+  <!-- QUIZ AREA -->
+
+  <section
+    class="welcome-card"
+    id="quizArea"
+    style="display:none;">
+
+    <h2 id="questionNumber"></h2>
+
+    <p id="questionText"></p>
+
+    <div id="answers"></div>
+
+    <button
+      type="button"
+      id="nextButton"
+      onclick="nextQuestion()"
+      style="display:none;">
+
+      Next 
+
+    </button>
+
+  </section>
+
+
+  <!-- COMPLETION -->
+
+  <section
+    class="welcome-card"
+    id="completeArea"
+    style="display:none;">
+
+    <h2>🎉 Lesson Complete!</h2>
+
+    <p>
+      Amazing work! You completed Lesson 1.
+    </p>
+
+    <p>
+      🧬 <strong>+20 Cells</strong>
+    </p>
+
+    <p>
+      🌱 <strong>+100 GP</strong>
+    </p>
+
+    <button
+      type="button"
+      onclick="goToLesson2()">
+
+      🔓 Continue to Lesson 2
+
+    </button>
+
+  </section>
+
+
+  <!-- OUT OF CELLS -->
+
+  <section
+    class="welcome-card"
+    id="stoppedArea"
+    style="display:none;">
+
+    <h2>⏳ Out of Cells</h2>
+
+    <p>
+      You have reached 0 Cells.
+    </p>
+
+    <p>
+      Wait for your Cells to regenerate,
+      then restart the quiz from Question 1.
+    </p>
+
+    <button
+      type="button"
+      onclick="restartQuiz()">
+
+      🔄 Restart Quiz
+
+    </button>
+
+  </section>
+
+
+</main>
+
+
+<script>
+
+
+/* =========================
+   QUESTIONS
+========================= */
+
+var questions = [
+
+  {
+    type: "single",
+
+    question:
+      "Why is Biology considered a science?",
+
+    answers: [
+      "It studies only visible things",
+      "It uses evidence and systematic investigation to study life",
+      "It depends mainly on personal opinions",
+      "It studies only humans"
+    ],
+
+    correct: 1
+  },
+
+
+  {
+    type: "single",
+
+    question:
+      "A plant bends toward light. Which characteristic of life does this demonstrate?",
+
+    answers: [
+      "Sensitivity",
+      "Excretion",
+      "Nutrition",
+      "Reproduction"
+    ],
+
+    correct: 0
+  },
+
+
+  {
+    type: "single",
+
+    question:
+      "Why isn't a moving car considered a living thing?",
+
+    answers: [
+      "Movement alone does not demonstrate all characteristics of life",
+      "Cars are too large",
+      "Cars cannot contain materials",
+      "Only animals can move"
+    ],
+
+    correct: 0
+  },
+
+
+  {
+    type: "truefalse",
+
+    question:
+      "Respiration is associated with releasing energy from food.",
+
+    answers: [
+      "True",
+      "False"
+    ],
+
+    correct: 0
+  },
+
+
+  {
+    type: "single",
+
+    question:
+      "Which is the best example of growth?",
+
+    answers: [
+      "A seed developing into a larger plant",
+      "A stone moved by a person",
+      "A book placed on a table",
+      "A ball rolling down a slope"
+    ],
+
+    correct: 0
+  },
+
+
+  {
+    type: "multi",
+
+    question:
+      "Which of the following are characteristics of living organisms? Select all that apply.",
+
+    answers: [
+      "Respiration",
+      "Nutrition",
+      "Reproduction",
+      "Rusting"
+    ],
+
+    correct: [0, 1, 2]
+  },
+
+
+  {
+    type: "single",
+
+    question:
+      "Which is an example of Biology in everyday life?",
+
+    answers: [
+      "Understanding how exercise affects breathing",
+      "Choosing a phone wallpaper",
+      "Selecting a paint colour",
+      "Measuring desk length"
+    ],
+
+    correct: 0
+  },
+
+
+  {
+    type: "single",
+
+    question:
+      "A scientist observes bacteria, records measurements, compares results and draws a conclusion. What does this illustrate?",
+
+    answers: [
+      "Scientific investigation",
+      "Guessing without evidence",
+      "Non-living growth",
+      "Reproduction"
+    ],
+
+    correct: 0
+  },
+
+
+  {
+    type: "truefalse",
+
+    question:
+      "A non-living object becomes living simply because it can move.",
+
+    answers: [
+      "True",
+      "False"
+    ],
+
+    correct: 1
+  },
+
+
+  {
+    type: "single",
+
+    question:
+      "Why is Biology important to society?",
+
+    answers: [
+      "It helps people understand health, organisms and the environment",
+      "It removes the need for scientific research",
+      "It explains only machines",
+      "It applies only in laboratories"
+    ],
+
+    correct: 0
+  }
+
+];
+
+
+/* =========================
+   QUIZ VARIABLES
+========================= */
+
+var currentQuestion = 0;
+
+var answered = false;
+
+
+/* =========================
+   CELLS
+========================= */
+
+function getCells() {
+
+  var stored =
+    localStorage.getItem("cells");
+
+
+  if (stored === null) {
+
+    localStorage.setItem(
+      "cells",
+      "10"
+    );
+
+    return 10;
+
+  }
+
+
+  var cells =
+    Number(stored);
+
+
+  if (isNaN(cells)) {
+
+    cells = 10;
+
+    localStorage.setItem(
+      "cells",
+      cells
+    );
+
+  }
+
+
+  return cells;
+
+}
+
+
+function saveCells(value) {
+
+  localStorage.setItem(
+    "cells",
+    value
+  );
+
+  updateStats();
+
+}
+
+
+/* =========================
+   GP
+========================= */
+
+function getGP() {
+
+  var stored =
+    localStorage.getItem("gp");
+
+
+  if (stored === null) {
+
+    localStorage.setItem(
+      "gp",
+      "0"
+    );
+
+    return 0;
+
+  }
+
+
+  var gp =
+    Number(stored);
+
+
+  if (isNaN(gp)) {
+
+    gp = 0;
+
+    localStorage.setItem(
+      "gp",
+      gp
+    );
+
+  }
+
+
+  return gp;
+
+}
+
+
+function addGP(amount) {
+
+  var gp =
+    getGP();
+
+
+  gp += amount;
+
+
+  localStorage.setItem(
+    "gp",
+    gp
+  );
+
+
+  updateStats();
+
+}
+
+
+/* =========================
+   UPDATE CELLS + GP
+========================= */
+
+function updateStats() {
+
+  document.getElementById(
+    "cellsDisplay"
+  ).textContent =
+    getCells();
+
+
+  document.getElementById(
+    "gpDisplay"
+  ).textContent =
+    getGP();
+
+}
+
+
+/* =========================
+   START QUIZ
+========================= */
+
+function startQuiz() {
+
+  currentQuestion = 0;
+
+  answered = false;
+
+
+  document.getElementById(
+    "quizIntro"
+  ).style.display =
+    "none";
+
+
+  document.getElementById(
+    "quizArea"
+  ).style.display =
+    "block";
+
+
+  document.getElementById(
+    "completeArea"
+  ).style.display =
+    "none";
+
+
+  document.getElementById(
+    "stoppedArea"
+  ).style.display =
+    "none";
+
+
+  showQuestion();
+
+}
+
+
+/* =========================
+   SHOW QUESTION
+========================= */
+
+function showQuestion() {
+
+  answered = false;
+
+
+  var question =
+    questions[currentQuestion];
+
+
+  document.getElementById(
+    "questionNumber"
+  ).textContent =
+    "Question " +
+    (currentQuestion + 1) +
+    " of " +
+    questions.length;
+
+
+  document.getElementById(
+    "questionText"
+  ).textContent =
+    question.question;
+
+
+  var answers =
+    document.getElementById(
+      "answers"
     );
 
 
+  answers.innerHTML = "";
 
-    /* =========================
-       FOREST BUTTON
-    ========================= */
 
-    forestButton.addEventListener(
-      "click",
-      function() {
+  document.getElementById(
+    "nextButton"
+  ).style.display =
+    "none";
 
-        quizResult.textContent =
-          "❌ Try again! That is not the correct answer.";
 
-      }
+  if (
+    question.type === "multi"
+  ) {
 
+    createMultiAnswers(
+      question,
+      answers
+    );
+
+  } else {
+
+    createSingleAnswers(
+      question,
+      answers
+    );
+
+  }
+
+}
+
+
+/* =========================
+   SINGLE ANSWERS
+========================= */
+
+function createSingleAnswers(
+  question,
+  container
+) {
+
+  for (
+    var i = 0;
+    i < question.answers.length;
+    i++
+  ) {
+
+    var button =
+      document.createElement(
+        "button"
+      );
+
+
+    button.type =
+      "button";
+
+
+    button.textContent =
+      question.answers[i];
+
+
+    button.style.display =
+      "block";
+
+
+    button.style.width =
+      "100%";
+
+
+    button.style.marginBottom =
+      "10px";
+
+
+    button.style.textAlign =
+      "left";
+
+
+    (function(index) {
+
+      button.onclick =
+        function() {
+
+          answerSingle(index);
+
+        };
+
+    })(i);
+
+
+    container.appendChild(
+      button
+    );
+
+  }
+
+}
+
+
+/* =========================
+   MULTI SELECT
+========================= */
+
+function createMultiAnswers(
+  question,
+  container
+) {
+
+  for (
+    var i = 0;
+    i < question.answers.length;
+    i++
+  ) {
+
+    var label =
+      document.createElement(
+        "label"
+      );
+
+
+    label.style.display =
+      "block";
+
+
+    label.style.marginBottom =
+      "12px";
+
+
+    var checkbox =
+      document.createElement(
+        "input"
+      );
+
+
+    checkbox.type =
+      "checkbox";
+
+
+    checkbox.value =
+      i;
+
+
+    checkbox.style.marginRight =
+      "8px";
+
+
+    label.appendChild(
+      checkbox
     );
 
 
-
-    /* =========================
-       CONTINUE TO LESSON 2
-    ========================= */
-
-    continueButton.addEventListener(
-      "click",
-      function() {
-
-        window.location.href =
-          "lesson2.html";
-
-      }
-
+    label.appendChild(
+      document.createTextNode(
+        question.answers[i]
+      )
     );
 
 
-  </script>
+    container.appendChild(
+      label
+    );
+
+  }
+
+
+  var submit =
+    document.createElement(
+      "button"
+    );
+
+
+  submit.type =
+    "button";
+
+
+  submit.textContent =
+    "Check Answer";
+
+
+  submit.onclick =
+    function() {
+
+      answerMulti(
+        question,
+        container
+      );
+
+    };
+
+
+  container.appendChild(
+    submit
+  );
+
+}
+
+
+/* =========================
+   SINGLE ANSWER
+========================= */
+
+function answerSingle(index) {
+
+  if (answered) {
+    return;
+  }
+
+
+  answered = true;
+
+
+  var question =
+    questions[currentQuestion];
+
+
+  if (
+    index === question.correct
+  ) {
+
+    showFeedback(
+      "✅ Correct! Great work."
+    );
+
+  } else {
+
+    loseCells();
+
+    showFeedback(
+      "❌ Not quite. Try to learn from this question."
+    );
+
+  }
+
+
+  document.getElementById(
+    "nextButton"
+  ).style.display =
+    "block";
+
+
+  if (
+    getCells() <= 0
+  ) {
+
+    document.getElementById(
+      "nextButton"
+    ).style.display =
+      "none";
+
+
+    setTimeout(
+      stopQuiz,
+      800
+    );
+
+  }
+
+}
+
+
+/* =========================
+   MULTI ANSWER
+========================= */
+
+function answerMulti(
+  question,
+  container
+) {
+
+  if (answered) {
+    return;
+  }
+
+
+  var boxes =
+    container.querySelectorAll(
+      "input[type='checkbox']"
+    );
+
+
+  var selected = [];
+
+
+  for (
+    var i = 0;
+    i < boxes.length;
+    i++
+  ) {
+
+    if (
+      boxes[i].checked
+    ) {
+
+      selected.push(
+        Number(
+          boxes[i].value
+        )
+      );
+
+    }
+
+  }
+
+
+  selected.sort();
+
+
+  var correct =
+    question.correct.slice();
+
+
+  correct.sort();
+
+
+  var isCorrect =
+    selected.length ===
+    correct.length;
+
+
+  if (isCorrect) {
+
+    for (
+      var j = 0;
+      j < correct.length;
+      j++
+    ) {
+
+      if (
+        selected[j] !==
+        correct[j]
+      ) {
+
+        isCorrect = false;
+
+        break;
+
+      }
+
+    }
+
+  }
+
+
+  answered = true;
+
+
+  if (isCorrect) {
+
+    showFeedback(
+      "✅ Correct! Excellent!"
+    );
+
+  } else {
+
+    loseCells();
+
+    showFeedback(
+      "❌ Not quite. Try to learn from this question."
+    );
+
+  }
+
+
+  document.getElementById(
+    "nextButton"
+  ).style.display =
+    "block";
+
+
+  if (
+    getCells() <= 0
+  ) {
+
+    document.getElementById(
+      "nextButton"
+    ).style.display =
+      "none";
+
+
+    setTimeout(
+      stopQuiz,
+      800
+    );
+
+  }
+
+}
+
+
+/* =========================
+   LOSE CELLS
+========================= */
+
+function loseCells() {
+
+  var cells =
+    getCells();
+
+
+  cells -= 5;
+
+
+  if (cells < 0) {
+    cells = 0;
+  }
+
+
+  saveCells(cells);
+
+}
+
+
+/* =========================
+   FEEDBACK
+========================= */
+
+function showFeedback(
+  message
+) {
+
+  var feedback =
+    document.getElementById(
+      "quizFeedback"
+    );
+
+
+  if (!feedback) {
+
+    feedback =
+      document.createElement(
+        "p"
+      );
+
+
+    feedback.id =
+      "quizFeedback";
+
+
+    feedback.style.fontWeight =
+      "bold";
+
+
+    feedback.style.marginTop =
+      "15px";
+
+
+    document.getElementById(
+      "answers"
+    ).appendChild(
+      feedback
+    );
+
+  }
+
+
+  feedback.textContent =
+    message;
+
+}
+
+
+/* =========================
+   NEXT QUESTION
+========================= */
+
+function nextQuestion() {
+
+  if (!answered) {
+    return;
+  }
+
+
+  currentQuestion++;
+
+
+  if (
+    currentQuestion >=
+    questions.length
+  ) {
+
+    finishQuiz();
+
+    return;
+
+  }
+
+
+  showQuestion();
+
+}
+
+
+/* =========================
+   STOP QUIZ
+========================= */
+
+function stopQuiz() {
+
+  document.getElementById(
+    "quizArea"
+  ).style.display =
+    "none";
+
+
+  document.getElementById(
+    "stoppedArea"
+  ).style.display =
+    "block";
+
+}
+
+
+/* =========================
+   RESTART QUIZ
+========================= */
+
+function restartQuiz() {
+
+  if (
+    getCells() <= 0
+  ) {
+
+    alert(
+      "You have 0 Cells. Wait for regeneration before restarting."
+    );
+
+    return;
+
+  }
+
+
+  currentQuestion = 0;
+
+
+  document.getElementById(
+    "stoppedArea"
+  ).style.display =
+    "none";
+
+
+  document.getElementById(
+    "quizArea"
+  ).style.display =
+    "block";
+
+
+  showQuestion();
+
+}
+
+
+/* =========================
+   FINISH QUIZ
+========================= */
+
+function finishQuiz() {
+
+  if (
+    localStorage.getItem(
+      "lesson1QuizCompleted"
+    ) === "true"
+  ) {
+
+    document.getElementById(
+      "quizArea"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "completeArea"
+    ).style.display =
+      "block";
+
+
+    return;
+
+  }
+
+
+  /* +20 CELLS */
+
+  var cells =
+    getCells();
+
+
+  cells += 20;
+
+
+  saveCells(cells);
+
+
+  /* +100 GP */
+
+  addGP(100);
+
+
+  /* SAVE COMPLETION */
+
+  localStorage.setItem(
+    "lesson1QuizCompleted",
+    "true"
+  );
+
+
+  localStorage.setItem(
+    "lesson1Completed",
+    "true"
+  );
+
+
+  document.getElementById(
+    "quizArea"
+  ).style.display =
+    "none";
+
+
+  document.getElementById(
+    "completeArea"
+  ).style.display =
+    "block";
+
+
+  updateStats();
+
+}
+
+
+/* =========================
+   LESSON 2
+========================= */
+
+function goToLesson2() {
+
+  window.location.href =
+    "lesson2.html";
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+getCells();
+
+getGP();
+
+updateStats();
+
+
+window.startQuiz =
+  startQuiz;
+
+window.nextQuestion =
+  nextQuestion;
+
+window.restartQuiz =
+  restartQuiz;
+
+window.goToLesson2 =
+  goToLesson2;
+
+</script>
 
 
 </body>
