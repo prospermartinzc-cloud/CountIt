@@ -1,4 +1,4 @@
-const CACHE_NAME = "countit-v2";
+const CACHE_NAME = "countit-v3";
 
 const FILES_TO_CACHE = [
   "index.html",
@@ -31,6 +31,47 @@ self.addEventListener("install", event => {
       .then(cache => {
 
         return cache.addAll(FILES_TO_CACHE);
+
+      })
+
+      .then(() => {
+
+        return self.skipWaiting();
+
+      })
+
+  );
+
+});
+
+
+// ACTIVATE
+self.addEventListener("activate", event => {
+
+  event.waitUntil(
+
+    caches.keys()
+      .then(cacheNames => {
+
+        return Promise.all(
+
+          cacheNames.map(cacheName => {
+
+            if (cacheName !== CACHE_NAME) {
+
+              return caches.delete(cacheName);
+
+            }
+
+          })
+
+        );
+
+      })
+
+      .then(() => {
+
+        return self.clients.claim();
 
       })
 
