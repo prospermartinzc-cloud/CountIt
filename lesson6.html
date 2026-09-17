@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 6 | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>🌱 CountIt</h1>
+    <p>Biology You Can Count</p>
+  </header>
+
+
+  <main class="lesson">
+
+    <a href="index.html" class="back-button">
+      ← Back to Lessons
+    </a>
+
+
+    <h2>Lesson 6</h2>
+
+    <h3>💨 Gas Exchange in Plants</h3>
+
+    <p>
+      Plants need to exchange gases with their surroundings
+      in order to carry out important life processes.
+    </p>
+
+    <p>
+      The main gases involved are
+      <strong>carbon dioxide</strong> and
+      <strong>oxygen</strong>.
+    </p>
+
+
+    <h3>🍃 Gas Exchange Through Stomata</h3>
+
+    <p>
+      Most gas exchange in leaves takes place through tiny
+      openings called <strong>stomata</strong>.
+    </p>
+
+    <p>
+      Carbon dioxide enters the leaf through the stomata
+      and is used during photosynthesis.
+    </p>
+
+    <p>
+      Oxygen produced during photosynthesis can leave the leaf
+      through the stomata.
+    </p>
+
+
+    <h3>🔬 Guard Cells</h3>
+
+    <p>
+      Each stoma is surrounded by two
+      <strong>guard cells</strong>.
+    </p>
+
+    <p>
+      Guard cells control the opening and closing of the stomata.
+    </p>
+
+    <p>
+      When the stomata are open, gases can move into and out
+      of the leaf more easily.
+    </p>
+
+
+    <h3>🌙 Stomata at Night</h3>
+
+    <p>
+      Many plants close their stomata at night because
+      photosynthesis is not taking place without light.
+    </p>
+
+    <p>
+      However, the behaviour of stomata can vary between
+      different plants.
+    </p>
+
+
+    <h3>🌱 Gas Exchange in Roots</h3>
+
+    <p>
+      Roots also need oxygen for aerobic respiration.
+    </p>
+
+    <p>
+      Oxygen from the air spaces in the soil enters the roots
+      by diffusion.
+    </p>
+
+    <p>
+      Carbon dioxide produced during respiration diffuses
+      out of the roots.
+    </p>
+
+
+    <div class="note">
+
+      <strong>🧠 WASSCE Reminder:</strong>
+
+      <p>
+        <strong>Stomata →</strong> openings through which gases
+        move in and out of leaves.
+      </p>
+
+      <p>
+        <strong>Guard cells →</strong> control stomatal opening
+        and closing.
+      </p>
+
+      <p>
+        <strong>Carbon dioxide →</strong> enters the leaf for
+        photosynthesis.
+      </p>
+
+      <p>
+        <strong>Oxygen →</strong> can leave the leaf after being
+        produced during photosynthesis.
+      </p>
+
+      <p>
+        <strong>Roots →</strong> obtain oxygen from air spaces
+        in the soil for respiration.
+      </p>
+
+    </div>
+
+
+    <hr>
+
+
+    <h2>📝 Lesson 6 Quiz</h2>
+
+    <p>
+      <strong>Get all four correct to complete the lesson.</strong>
+    </p>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question">
+
+      <p>
+        1. Through which structures does most gas exchange
+        take place in leaves?
+      </p>
+
+      <button id="q1Stomata">
+        Stomata
+      </button>
+
+      <button id="q1Xylem">
+        Xylem
+      </button>
+
+      <button id="q1Roots">
+        Roots
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question">
+
+      <p>
+        2. Which cells control the opening and closing
+        of stomata?
+      </p>
+
+      <button id="q2Palisade">
+        Palisade cells
+      </button>
+
+      <button id="q2Guard">
+        Guard cells
+      </button>
+
+      <button id="q2Root">
+        Root cells
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question">
+
+      <p>
+        3. Which gas enters the leaf for photosynthesis?
+      </p>
+
+      <button id="q3Carbon">
+        Carbon dioxide
+      </button>
+
+      <button id="q3Oxygen">
+        Oxygen
+      </button>
+
+      <button id="q3Nitrogen">
+        Nitrogen
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question">
+
+      <p>
+        4. Why do roots need oxygen?
+      </p>
+
+      <button id="q4Starch">
+        For making starch
+      </button>
+
+      <button id="q4Respiration">
+        For aerobic respiration
+      </button>
+
+      <button id="q4Sunlight">
+        For absorbing sunlight
+      </button>
+
+    </div>
+
+
+    <div id="result"></div>
+
+
+    <button id="completeBtn" disabled>
+      🔒 Complete Lesson
+    </button>
+
+  </main>
+
+
+  <!-- COUNTIT APP -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+    let score = 0;
+    let answered = 0;
+
+
+    function checkQuizAnswer(button, correct) {
+
+      if (button.disabled) {
+        return;
+      }
+
+      button.disabled = true;
+
+      answered++;
+
+
+      if (correct) {
+
+        button.style.backgroundColor = "green";
+        button.style.color = "white";
+
+        score++;
+
+      } else {
+
+        button.style.backgroundColor = "red";
+        button.style.color = "white";
+
+      }
+
+
+      if (answered === 4) {
+
+        const result =
+          document.getElementById("result");
+
+
+        if (score === 4) {
+
+          result.innerHTML =
+            "🎉 Perfect! You scored 4/4. " +
+            "You can now complete Lesson 6!";
+
+          document.getElementById("completeBtn")
+            .disabled = false;
+
+        } else {
+
+          result.innerHTML =
+            "You scored " + score +
+            "/4. Review the lesson and try again.";
+
+        }
+
+      }
+
+    }
+
+
+    /* =========================
+       QUESTION 1
+    ========================= */
+
+    document
+      .getElementById("q1Stomata")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q1Xylem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q1Roots")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 2
+    ========================= */
+
+    document
+      .getElementById("q2Palisade")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q2Guard")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q2Root")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 3
+    ========================= */
+
+    document
+      .getElementById("q3Carbon")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q3Oxygen")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q3Nitrogen")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 4
+    ========================= */
+
+    document
+      .getElementById("q4Starch")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q4Respiration")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q4Sunlight")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       COMPLETE LESSON
+    ========================= */
+
+    document
+      .getElementById("completeBtn")
+      .addEventListener("click", function() {
+
+        /*
+          If Lesson 6 is already completed,
+          continue directly to Lesson 7.
+        */
+
+        if (isLessonCompleted(6)) {
+
+          window.location.href =
+            "lesson7.html";
+
+          return;
+
+        }
+
+
+        /*
+          Add 10 Cells
+        */
+
+        const cells =
+          addCells(10);
+
+
+        /*
+          Save Lesson 6 completion
+        */
+
+        completeLesson(6);
+
+
+        /*
+          Show completion message
+        */
+
+        document.getElementById("result").innerHTML =
+          "🎉 Lesson 6 completed! " +
+          "You earned 🧬 10 Cells! " +
+          "Total Cells: " + cells;
+
+
+        /*
+          Change button to Lesson 7
+        */
+
+        const button =
+          document.getElementById("completeBtn");
+
+
+        button.innerHTML =
+          "🔓 Continue to Lesson 7 →";
+
+
+        button.disabled = false;
+
+
+        /*
+          Replace button to remove
+          the old click listener.
+        */
+
+        const newButton =
+          button.cloneNode(true);
+
+
+        button.parentNode.replaceChild(
+          newButton,
+          button
+        );
+
+
+        newButton.addEventListener(
+          "click",
+          function() {
+
+            window.location.href =
+              "lesson7.html";
+
+          }
+        );
+
+      });
+
+  </script>
+
+</body>
+
+</html>
