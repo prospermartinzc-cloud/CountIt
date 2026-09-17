@@ -9,6 +9,7 @@ body {
   background: #f1f8f3;
   color: #20352a;
   line-height: 1.6;
+  padding-bottom: 90px;
 }
 
 /* Header */
@@ -76,44 +77,6 @@ body {
 }
 
 .stat p {
-  font-size: 13px;
-  color: #52665a;
-}
-
-/* =========================
-   LESSON STATS
-========================= */
-
-.lesson-stats {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  margin-bottom: 25px;
-}
-
-.lesson-stat {
-  flex: 1;
-  background: white;
-  padding: 15px 10px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.lesson-stat span {
-  display: block;
-  font-size: 28px;
-  margin-bottom: 4px;
-}
-
-.lesson-stat strong {
-  display: block;
-  font-size: 22px;
-  color: #176b45;
-}
-
-.lesson-stat p {
-  margin: 4px 0 0;
   font-size: 13px;
   color: #52665a;
 }
@@ -323,9 +286,9 @@ footer {
   transform: scale(1.02);
 }
 
-/* =========================
+/* =============================
    COUNTIT APP NAVIGATION
-========================= */
+============================= */
 
 .bottom-nav {
   position: fixed;
@@ -405,4 +368,40 @@ footer {
 
 .continue-section button:active {
   transform: scale(0.97);
+}
+
+/* Lesson stats */
+
+.lesson-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.lesson-stat {
+  flex: 1;
+  background: white;
+  padding: 15px 10px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-stat span {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.lesson-stat strong {
+  display: block;
+  font-size: 22px;
+  color: #176b45;
+}
+
+.lesson-stat p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #52665a;
 }
