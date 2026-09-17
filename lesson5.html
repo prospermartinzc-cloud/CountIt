@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 5 | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>🌱 CountIt</h1>
+    <p>Biology You Can Count</p>
+  </header>
+
+
+  <main class="lesson">
+
+    <a href="index.html" class="back-button">
+      ← Back to Lessons
+    </a>
+
+
+    <h2>Lesson 5</h2>
+
+    <h3>🍃 Structure of a Leaf</h3>
+
+    <p>
+      A leaf is an important organ of a plant. It is mainly
+      adapted for carrying out <strong>photosynthesis</strong>.
+    </p>
+
+    <p>
+      Different parts of a leaf have different structures that
+      help the leaf perform its functions.
+    </p>
+
+
+    <h3>🌿 Main Parts of a Leaf</h3>
+
+
+    <p>
+      <strong>1. Waxy Cuticle</strong>
+    </p>
+
+    <p>
+      The waxy cuticle is a thin, waterproof layer covering
+      the upper surface of the leaf.
+    </p>
+
+    <p>
+      It helps reduce water loss from the leaf.
+    </p>
+
+
+    <p>
+      <strong>2. Upper Epidermis</strong>
+    </p>
+
+    <p>
+      The upper epidermis is a layer of cells below the cuticle.
+      It protects the inner tissues of the leaf.
+    </p>
+
+
+    <p>
+      <strong>3. Palisade Mesophyll</strong>
+    </p>
+
+    <p>
+      Palisade cells contain many chloroplasts.
+      They are therefore well adapted for absorbing light
+      and carrying out photosynthesis.
+    </p>
+
+
+    <p>
+      <strong>4. Spongy Mesophyll</strong>
+    </p>
+
+    <p>
+      The spongy mesophyll contains many air spaces.
+      These spaces allow gases to move through the leaf.
+    </p>
+
+
+    <p>
+      <strong>5. Vascular Bundle</strong>
+    </p>
+
+    <p>
+      Vascular bundles contain <strong>xylem</strong> and
+      <strong>phloem</strong>.
+    </p>
+
+    <p>
+      Xylem transports water and mineral salts to the leaf.
+    </p>
+
+    <p>
+      Phloem transports manufactured food such as sugars
+      away from the leaf.
+    </p>
+
+
+    <p>
+      <strong>6. Stomata</strong>
+    </p>
+
+    <p>
+      Stomata are tiny pores found mainly on the lower surface
+      of leaves.
+    </p>
+
+    <p>
+      They allow gases such as carbon dioxide and oxygen
+      to move into and out of the leaf.
+    </p>
+
+
+    <h3>🔬 Guard Cells</h3>
+
+    <p>
+      Each stoma is surrounded by two
+      <strong>guard cells</strong>.
+    </p>
+
+    <p>
+      Guard cells control the opening and closing of the
+      stomata.
+    </p>
+
+
+    <div class="note">
+
+      <strong>🧠 WASSCE Reminder:</strong>
+
+      <p>
+        <strong>Xylem →</strong> transports water and mineral salts.
+      </p>
+
+      <p>
+        <strong>Phloem →</strong> transports manufactured food.
+      </p>
+
+      <p>
+        <strong>Stomata →</strong> allow gaseous exchange.
+      </p>
+
+      <p>
+        <strong>Guard cells →</strong> control the opening and
+        closing of stomata.
+      </p>
+
+      <p>
+        <strong>Palisade cells →</strong> contain many chloroplasts
+        for photosynthesis.
+      </p>
+
+    </div>
+
+
+    <hr>
+
+
+    <h2>📝 Lesson 5 Quiz</h2>
+
+    <p>
+      <strong>Get all four correct to complete the lesson.</strong>
+    </p>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question">
+
+      <p>
+        1. Which tissue contains many chloroplasts and is
+        well adapted for photosynthesis?
+      </p>
+
+      <button id="q1Palisade">
+        Palisade mesophyll
+      </button>
+
+      <button id="q1Xylem">
+        Xylem
+      </button>
+
+      <button id="q1Phloem">
+        Phloem
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question">
+
+      <p>
+        2. What is the main function of stomata?
+      </p>
+
+      <button id="q2Food">
+        Transporting food
+      </button>
+
+      <button id="q2Gas">
+        Allowing gaseous exchange
+      </button>
+
+      <button id="q2Minerals">
+        Absorbing minerals from the soil
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question">
+
+      <p>
+        3. Which tissue transports water and mineral salts
+        to the leaf?
+      </p>
+
+      <button id="q3Xylem">
+        Xylem
+      </button>
+
+      <button id="q3Phloem">
+        Phloem
+      </button>
+
+      <button id="q3Epidermis">
+        Epidermis
+      </button>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question">
+
+      <p>
+        4. Which cells control the opening and closing
+        of stomata?
+      </p>
+
+      <button id="q4Palisade">
+        Palisade cells
+      </button>
+
+      <button id="q4Guard">
+        Guard cells
+      </button>
+
+      <button id="q4Xylem">
+        Xylem cells
+      </button>
+
+    </div>
+
+
+    <div id="result"></div>
+
+
+    <button id="completeBtn" disabled>
+      🔒 Complete Lesson
+    </button>
+
+  </main>
+
+
+  <!-- COUNTIT APP -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+    let score = 0;
+    let answered = 0;
+
+
+    function checkQuizAnswer(button, correct) {
+
+      if (button.disabled) {
+        return;
+      }
+
+      button.disabled = true;
+
+      answered++;
+
+
+      if (correct) {
+
+        button.style.backgroundColor = "green";
+        button.style.color = "white";
+
+        score++;
+
+      } else {
+
+        button.style.backgroundColor = "red";
+        button.style.color = "white";
+
+      }
+
+
+      if (answered === 4) {
+
+        const result =
+          document.getElementById("result");
+
+
+        if (score === 4) {
+
+          result.innerHTML =
+            "🎉 Perfect! You scored 4/4. " +
+            "You can now complete Lesson 5!";
+
+          document.getElementById("completeBtn")
+            .disabled = false;
+
+        } else {
+
+          result.innerHTML =
+            "You scored " + score +
+            "/4. Review the lesson and try again.";
+
+        }
+
+      }
+
+    }
+
+
+    /* =========================
+       QUESTION 1
+    ========================= */
+
+    document
+      .getElementById("q1Palisade")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q1Xylem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q1Phloem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 2
+    ========================= */
+
+    document
+      .getElementById("q2Food")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q2Gas")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q2Minerals")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 3
+    ========================= */
+
+    document
+      .getElementById("q3Xylem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q3Phloem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q3Epidermis")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       QUESTION 4
+    ========================= */
+
+    document
+      .getElementById("q4Palisade")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document
+      .getElementById("q4Guard")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document
+      .getElementById("q4Xylem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /* =========================
+       COMPLETE LESSON
+    ========================= */
+
+    document
+      .getElementById("completeBtn")
+      .addEventListener("click", function() {
+
+        /*
+          If Lesson 5 is already completed,
+          continue directly to Lesson 6.
+        */
+
+        if (isLessonCompleted(5)) {
+
+          window.location.href =
+            "lesson6.html";
+
+          return;
+
+        }
+
+
+        /*
+          Add 10 Cells
+        */
+
+        const cells =
+          addCells(10);
+
+
+        /*
+          Save Lesson 5 completion
+        */
+
+        completeLesson(5);
+
+
+        /*
+          Show completion message
+        */
+
+        document.getElementById("result").innerHTML =
+          "🎉 Lesson 5 completed! " +
+          "You earned 🧬 10 Cells! " +
+          "Total Cells: " + cells;
+
+
+        /*
+          Change button to Lesson 6
+        */
+
+        const button =
+          document.getElementById("completeBtn");
+
+
+        button.innerHTML =
+          "🔓 Continue to Lesson 6 →";
+
+
+        button.disabled = false;
+
+
+        /*
+          Remove old listener by replacing button
+        */
+
+        const newButton =
+          button.cloneNode(true);
+
+
+        button.parentNode.replaceChild(
+          newButton,
+          button
+        );
+
+
+        newButton.addEventListener(
+          "click",
+          function() {
+
+            window.location.href =
+              "lesson6.html";
+
+          }
+        );
+
+      });
+
+  </script>
+
+</body>
+
+</html>
