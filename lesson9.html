@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 9 | CountIt</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>🌱 CountIt</h1>
+    <p>Biology You Can Count</p>
+  </header>
+
+  <main class="lesson">
+
+    <a href="index.html" class="back-button">
+      ← Back to Lessons
+    </a>
+
+    <h2>Lesson 9</h2>
+
+    <h3>🍬 Translocation of Manufactured Food</h3>
+
+    <p>
+      Plants manufacture food during photosynthesis, mainly in
+      the form of <strong>glucose</strong>.
+    </p>
+
+    <p>
+      The glucose may be converted into other substances such as
+      sucrose and transported to different parts of the plant.
+    </p>
+
+    <h3>🚚 What is Translocation?</h3>
+
+    <p>
+      <strong>Translocation</strong> is the movement of
+      manufactured food substances from one part of a plant
+      to another through the <strong>phloem</strong>.
+    </p>
+
+    <p>
+      Unlike xylem, which mainly transports water and mineral
+      salts, phloem transports organic food substances.
+    </p>
+
+    <h3>🌿 The Phloem</h3>
+
+    <p>
+      Phloem is a vascular tissue found in the veins of leaves,
+      stems and roots.
+    </p>
+
+    <p>
+      It transports substances such as sucrose from areas where
+      they are produced or released to areas where they are
+      needed or stored.
+    </p>
+
+    <h3>📍 Source and Sink</h3>
+
+    <p>
+      The part of the plant where food is produced or released
+      for transport is called a <strong>source</strong>.
+    </p>
+
+    <p>
+      The part of the plant where food is used or stored is
+      called a <strong>sink</strong>.
+    </p>
+
+    <div class="note">
+
+      <strong>🧠 Example:</strong>
+
+      <p>
+        A mature leaf can act as a source because it produces
+        food by photosynthesis.
+      </p>
+
+      <p>
+        A growing root can act as a sink because it uses
+        transported food for growth and respiration.
+      </p>
+
+    </div>
+
+    <h3>🌱 Why is Translocation Important?</h3>
+
+    <p>
+      Translocation allows food to reach parts of the plant
+      that cannot produce enough food by themselves.
+    </p>
+
+    <p>
+      The transported food can be used for:
+    </p>
+
+    <p>• Growth</p>
+    <p>• Respiration</p>
+    <p>• Storage</p>
+    <p>• Production of new tissues and substances</p>
+
+    <div class="note">
+
+      <strong>📚 WASSCE Reminder:</strong>
+
+      <p>
+        <strong>Translocation →</strong>
+        movement of manufactured food through the phloem.
+      </p>
+
+      <p>
+        <strong>Phloem →</strong>
+        transports manufactured food substances.
+      </p>
+
+      <p>
+        <strong>Source →</strong>
+        area where food is produced or released for transport.
+      </p>
+
+      <p>
+        <strong>Sink →</strong>
+        area where food is used or stored.
+      </p>
+
+    </div>
+
+    <hr>
+
+    <h2>📝 Lesson 9 Quiz</h2>
+
+    <p>
+      <strong>Get all four correct to complete the lesson.</strong>
+    </p>
+
+    <!-- QUESTION 1 -->
+
+    <div class="question">
+
+      <p>
+        1. What is translocation?
+      </p>
+
+      <button id="q1Phloem">
+        Movement of manufactured food through the phloem
+      </button>
+
+      <button id="q1Xylem">
+        Movement of water through the xylem
+      </button>
+
+      <button id="q1Stomata">
+        Loss of water vapour through stomata
+      </button>
+
+    </div>
+
+    <!-- QUESTION 2 -->
+
+    <div class="question">
+
+      <p>
+        2. Which tissue carries out translocation?
+      </p>
+
+      <button id="q2Xylem">
+        Xylem
+      </button>
+
+      <button id="q2Phloem">
+        Phloem
+      </button>
+
+      <button id="q2Epidermis">
+        Epidermis
+      </button>
+
+    </div>
+
+    <!-- QUESTION 3 -->
+
+    <div class="question">
+
+      <p>
+        3. What is a source in a plant?
+      </p>
+
+      <button id="q3Source">
+        An area where food is produced or released for transport
+      </button>
+
+      <button id="q3Water">
+        An area where only water is absorbed
+      </button>
+
+      <button id="q3Gas">
+        An area where gases are exchanged
+      </button>
+
+    </div>
+
+    <!-- QUESTION 4 -->
+
+    <div class="question">
+
+      <p>
+        4. Which of the following can be a sink?
+      </p>
+
+      <button id="q4Leaf">
+        A mature leaf producing food
+      </button>
+
+      <button id="q4Root">
+        A growing root using transported food
+      </button>
+
+      <button id="q4Stoma">
+        A stoma exchanging gases
+      </button>
+
+    </div>
+
+    <div id="result"></div>
+
+    <button id="completeBtn" disabled>
+      🔒 Complete Lesson
+    </button>
+
+  </main>
+
+
+  <!-- COUNTIT APP -->
+
+  <script src="app.js"></script>
+
+
+  <script>
+
+    let score = 0;
+    let answered = 0;
+
+
+    function checkQuizAnswer(button, correct) {
+
+      if (button.disabled) {
+        return;
+      }
+
+      button.disabled = true;
+
+      answered++;
+
+
+      if (correct) {
+
+        button.style.backgroundColor = "green";
+        button.style.color = "white";
+
+        score++;
+
+      } else {
+
+        button.style.backgroundColor = "red";
+        button.style.color = "white";
+
+      }
+
+
+      if (answered === 4) {
+
+        const result =
+          document.getElementById("result");
+
+
+        if (score === 4) {
+
+          result.innerHTML =
+            "🎉 Perfect! You scored 4/4. " +
+            "You can now complete Lesson 9!";
+
+          document.getElementById("completeBtn")
+            .disabled = false;
+
+        } else {
+
+          result.innerHTML =
+            "You scored " + score +
+            "/4. Review the lesson and try again.";
+
+        }
+
+      }
+
+    }
+
+
+    /*
+      QUESTION 1
+    */
+
+    document.getElementById("q1Phloem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q1Xylem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q1Stomata")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 2
+    */
+
+    document.getElementById("q2Xylem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q2Phloem")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q2Epidermis")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 3
+    */
+
+    document.getElementById("q3Source")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q3Water")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q3Gas")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      QUESTION 4
+    */
+
+    document.getElementById("q4Leaf")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    document.getElementById("q4Root")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, true);
+
+      });
+
+
+    document.getElementById("q4Stoma")
+      .addEventListener("click", function() {
+
+        checkQuizAnswer(this, false);
+
+      });
+
+
+    /*
+      COMPLETE LESSON 9
+    */
+
+    const completeBtn =
+      document.getElementById("completeBtn");
+
+
+    completeBtn.addEventListener(
+      "click",
+      function() {
+
+        /*
+          If already completed,
+          continue directly to Lesson 10.
+        */
+
+        if (isLessonCompleted(9)) {
+
+          window.location.href =
+            "lesson10.html";
+
+          return;
+
+        }
+
+
+        /*
+          Add 10 Cells
+        */
+
+        addCells(10);
+
+
+        /*
+          Save Lesson 9 completion
+        */
+
+        completeLesson(9);
+
+
+        /*
+          Show completion message
+        */
+
+        const totalCells = getCells();
+
+        document.getElementById("result").innerHTML =
+          "🎉 Lesson 9 completed! " +
+          "You earned 🧬 10 Cells! " +
+          "Total Cells: " + totalCells;
+
+
+        /*
+          Change button
+        */
+
+        completeBtn.innerHTML =
+          "🔓 Continue to Lesson 10 →";
+
+
+        /*
+          Remove old listener by replacing button
+        */
+
+        const newButton =
+          completeBtn.cloneNode(true);
+
+
+        completeBtn.parentNode.replaceChild(
+          newButton,
+          completeBtn
+        );
+
+
+        /*
+          Continue to Lesson 10
+        */
+
+        newButton.addEventListener(
+          "click",
+          function() {
+
+            window.location.href =
+              "lesson10.html";
+
+          }
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
