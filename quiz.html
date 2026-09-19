@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>CountIt Quiz</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header class="app-header">
+
+    <h1>🌱 CountIt</h1>
+
+    <p>Biology You Can Count</p>
+
+    <small id="quizTitle">
+      Lesson Quiz
+    </small>
+
+  </header>
+
+
+
+  <!-- MAIN -->
+
+  <main class="container">
+
+
+    <!-- STATS -->
+
+    <section class="lesson-stats">
+
+      <div class="lesson-stat">
+
+        <span>🧬</span>
+
+        <strong id="quizCells">
+          0
+        </strong>
+
+        <p>Cells</p>
+
+      </div>
+
+
+      <div class="lesson-stat">
+
+        <span>📈</span>
+
+        <strong id="quizGP">
+          0
+        </strong>
+
+        <p>GP</p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- QUIZ -->
+
+    <section
+      class="welcome-card"
+      id="quizBox"
+    >
+
+      <h2 id="questionNumber">
+        Question 1
+      </h2>
+
+      <p id="questionText">
+        Loading question...
+      </p>
+
+
+      <div id="answers"></div>
+
+
+      <p
+        id="feedback"
+        style="
+          margin-top: 15px;
+          font-weight: bold;
+        "
+      ></p>
+
+
+      <button
+        id="nextButton"
+        style="
+          display: none;
+          margin-top: 15px;
+        "
+      >
+        Next Question
+      </button>
+
+    </section>
+
+
+
+    <!-- RESULT -->
+
+    <section
+      id="resultBox"
+      class="welcome-card"
+      style="display: none;"
+    >
+
+      <h2>
+        🎉 Quiz Complete!
+      </h2>
+
+      <p id="resultText"></p>
+
+      <button id="nextLessonButton">
+        Continue
+      </button>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- BOTTOM NAV -->
+
+  <nav class="bottom-nav">
+
+    <a
+      href="index.html"
+      class="nav-item"
+    >
+      <span>🏠</span>
+      Home
+    </a>
+
+
+    <a
+      href="lessons.html"
+      class="nav-item"
+    >
+      <span>📚</span>
+      Lessons
+    </a>
+
+
+    <a
+      href="achievements.html"
+      class="nav-item"
+    >
+      <span>🏆</span>
+      Achievements
+    </a>
+
+
+    <a
+      href="profile.html"
+      class="nav-item"
+    >
+      <span>🧑‍🔬</span>
+      Profile
+    </a>
+
+  </nav>
+
+
+
+<script>
+
+
+/* =================================
+   GET LESSON NUMBER
+================================= */
+
+const urlParams =
+  new URLSearchParams(window.location.search);
+
+const lessonNumber =
+  Number(urlParams.get("lesson")) || 1;
+
+
+
+/* =================================
+   LESSON DATA
+================================= */
+
+const lessonData = {
+
+
+  /* =================================
+     LESSON 1
+  ================================= */
+
+  1: {
+
+    title: "Lesson 1 Quiz",
+
+    questions: [
+
+      {
+        question:
+          "Which of the following best defines Biology?",
+
+        answers: [
+          "The study of living organisms",
+          "The study of rocks",
+          "The study of stars",
+          "The study of machines"
+        ],
+
+        correct:
+          "The study of living organisms"
+      },
+
+
+      {
+        question:
+          "Which characteristic allows living organisms to produce offspring?",
+
+        answers: [
+          "Reproduction",
+          "Respiration",
+          "Excretion",
+          "Nutrition"
+        ],
+
+        correct:
+          "Reproduction"
+      },
+
+
+      {
+        question:
+          "Which of these is a living organism?",
+
+        answers: [
+          "A tree",
+          "A stone",
+          "A chair",
+          "A book"
+        ],
+
+        correct:
+          "A tree"
+      },
+
+
+      {
+        question:
+          "Which characteristic of living organisms refers to the release of energy from food?",
+
+        answers: [
+          "Respiration",
+          "Growth",
+          "Sensitivity",
+          "Reproduction"
+        ],
+
+        correct:
+          "Respiration"
+      },
+
+
+      {
+        question:
+          "Which characteristic of living organisms is shown when a plant bends towards light?",
+
+        answers: [
+          "Sensitivity",
+          "Excretion",
+          "Nutrition",
+          "Reproduction"
+        ],
+
+        correct:
+          "Sensitivity"
+      },
+
+
+      {
+        question:
+          "Which process involves the removal of metabolic waste from an organism?",
+
+        answers: [
+          "Excretion",
+          "Nutrition",
+          "Growth",
+          "Reproduction"
+        ],
+
+        correct:
+          "Excretion"
+      },
+
+
+      {
+        question:
+          "Which process allows an organism to obtain or make food for energy and growth?",
+
+        answers: [
+          "Nutrition",
+          "Excretion",
+          "Sensitivity",
+          "Respiration"
+        ],
+
+        correct:
+          "Nutrition"
+      },
+
+
+      {
+        question:
+          "Which of the following is an example of growth in a living organism?",
+
+        answers: [
+          "A seedling becoming a larger plant",
+          "A stone becoming wet",
+          "A chair becoming dusty",
+          "Water changing into ice"
+        ],
+
+        correct:
+          "A seedling becoming a larger plant"
+      },
+
+
+      {
+        question:
+          "Which characteristic allows an organism to respond to changes in its surroundings?",
+
+        answers: [
+          "Sensitivity",
+          "Nutrition",
+          "Excretion",
+          "Growth"
+        ],
+
+        correct:
+          "Sensitivity"
+      },
+
+
+      {
+        question:
+          "Which statement best distinguishes living things from non-living things?",
+
+        answers: [
+          "Living things carry out life processes",
+          "Living things are always green",
+          "Living things are always able to move from place to place",
+          "Living things are always visible to the naked eye"
+        ],
+
+        correct:
+          "Living things carry out life processes"
+      }
+
+    ]
+
+  },
+
+
+
+  /* =================================
+     LESSON 2
+  ================================= */
+
+  2: {
+
+    title: "Lesson 2 Quiz",
+
+    questions: [
+
+      {
+        question:
+          "What is photosynthesis?",
+
+        answers: [
+          "The process by which green plants make food",
+          "The process of digestion in animals",
+          "The movement of water through soil",
+          "The breakdown of rocks"
+        ],
+
+        correct:
+          "The process by which green plants make food"
+      },
+
+
+      {
+        question:
+          "Which substance is required from the atmosphere for photosynthesis?",
+
+        answers: [
+          "Carbon dioxide",
+          "Oxygen",
+          "Nitrogen",
+          "Hydrogen"
+        ],
+
+        correct:
+          "Carbon dioxide"
+      },
+
+
+      {
+        question:
+          "Which pigment absorbs light energy for photosynthesis?",
+
+        answers: [
+          "Chlorophyll",
+          "Haemoglobin",
+          "Melanin",
+          "Keratin"
+        ],
+
+        correct:
+          "Chlorophyll"
+      }
+
+    ]
+
+  },
+
+
+
+  /* =================================
+     LESSON 3
+  ================================= */
+
+  3: {
+
+    title: "Lesson 3 Quiz",
+
+    questions: [
+
+      {
+        question:
+          "What is a food chain?",
+
+        answers: [
+          "A sequence showing how energy passes between organisms",
+          "A list of all animals in an area",
+          "A group of plants growing together",
+          "A method of preparing food"
+        ],
+
+        correct:
+          "A sequence showing how energy passes between organisms"
+      },
+
+
+      {
+        question:
+          "Which organism is usually the producer in a food chain?",
+
+        answers: [
+          "Green plant",
+          "Frog",
+          "Snake",
+          "Hawk"
+        ],
+
+        correct:
+          "Green plant"
+      },
+
+
+      {
+        question:
+          "Which organisms break down dead organic matter?",
+
+        answers: [
+          "Decomposers",
+          "Producers",
+          "Primary consumers",
+          "Tertiary consumers"
+        ],
+
+        correct:
+          "Decomposers"
+      }
+
+    ]
+
+  },
+
+
+
+  /* =================================
+     LESSON 4
+  ================================= */
+
+  4: {
+
+    title: "Lesson 4 Quiz",
+
+    questions: [
+
+      {
+        question:
+          "What is the basic structural and functional unit of life?",
+
+        answers: [
+          "Cell",
+          "Tissue",
+          "Organ",
+          "Organ system"
+        ],
+
+        correct:
+          "Cell"
+      },
+
+
+      {
+        question:
+          "Which structure controls many activities of the cell?",
+
+        answers: [
+          "Nucleus",
+          "Cell wall",
+          "Vacuole",
+          "Cytoplasm"
+        ],
+
+        correct:
+          "Nucleus"
+      },
+
+
+      {
+        question:
+          "Which organelle is mainly responsible for releasing energy during respiration?",
+
+        answers: [
+          "Mitochondrion",
+          "Chloroplast",
+          "Vacuole",
+          "Cell wall"
+        ],
+
+        correct:
+          "Mitochondrion"
+      },
+
+
+      {
+        question:
+          "Which structure controls what enters and leaves the cell?",
+
+        answers: [
+          "Cell membrane",
+          "Nucleus",
+          "Cell wall",
+          "Chloroplast"
+        ],
+
+        correct:
+          "Cell membrane"
+      },
+
+
+      {
+        question:
+          "Which organelle is found in plant cells and carries out photosynthesis?",
+
+        answers: [
+          "Chloroplast",
+          "Mitochondrion",
+          "Nucleus",
+          "Ribosome"
+        ],
+
+        correct:
+          "Chloroplast"
+      },
+
+
+      {
+        question:
+          "Which structure gives a plant cell additional support and shape?",
+
+        answers: [
+          "Cell wall",
+          "Cell membrane",
+          "Cytoplasm",
+          "Nucleus"
+        ],
+
+        correct:
+          "Cell wall"
+      },
+
+
+      {
+        question:
+          "Where do many chemical reactions of the cell take place?",
+
+        answers: [
+          "Cytoplasm",
+          "Cell wall",
+          "Vacuole",
+          "Nucleus"
+        ],
+
+        correct:
+          "Cytoplasm"
+      },
+
+
+      {
+        question:
+          "Which structure is usually larger in a typical plant cell than in an animal cell?",
+
+        answers: [
+          "Vacuole",
+          "Nucleus",
+          "Cell membrane",
+          "Mitochondrion"
+        ],
+
+        correct:
+          "Vacuole"
+      },
+
+
+      {
+        question:
+          "Which statement correctly describes cell theory?",
+
+        answers: [
+          "Living organisms are made of cells",
+          "Only plants are made of cells",
+          "Only animals are made of cells",
+          "Cells are found only in organs"
+        ],
+
+        correct:
+          "Living organisms are made of cells"
+      },
+
+
+      {
+        question:
+          "Which structure is present in plant cells but not animal cells?",
+
+        answers: [
+          "Chloroplast",
+          "Nucleus",
+          "Cell membrane",
+          "Cytoplasm"
+        ],
+
+        correct:
+          "Chloroplast"
+      }
+
+    ]
+
+  }
+
+};
+
+
+
+/* =================================
+   SELECT LESSON
+================================= */
+
+const selectedLesson =
+  lessonData[lessonNumber];
+
+
+if (!selectedLesson) {
+
+  document.getElementById(
+    "questionText"
+  ).textContent =
+    "This lesson quiz is not available yet.";
+
+} else {
+
+  document.getElementById(
+    "quizTitle"
+  ).textContent =
+    selectedLesson.title;
+
+}
+
+
+
+/* =================================
+   CELLS
+================================= */
+
+function getCells() {
+
+  return Number(
+    localStorage.getItem("cells")
+  ) || 0;
+
+}
+
+
+function addCells(amount) {
+
+  let cells = getCells();
+
+  cells += amount;
+
+  if (cells < 0) {
+    cells = 0;
+  }
+
+  localStorage.setItem(
+    "cells",
+    cells
+  );
+
+  return cells;
+
+}
+
+
+
+/* =================================
+   GP
+================================= */
+
+function getGP() {
+
+  return Number(
+    localStorage.getItem("gp")
+  ) || 0;
+
+}
+
+
+function addGP(amount) {
+
+  let gp = getGP();
+
+  gp += amount;
+
+  localStorage.setItem(
+    "gp",
+    gp
+  );
+
+}
+
+
+
+/* =================================
+   UPDATE STATS
+================================= */
+
+function updateStats() {
+
+  document.getElementById(
+    "quizCells"
+  ).textContent =
+    getCells();
+
+
+  document.getElementById(
+    "quizGP"
+  ).textContent =
+    getGP();
+
+}
+
+
+updateStats();
+
+
+
+/* =================================
+   QUIZ VARIABLES
+================================= */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let quizStopped = false;
+
+
+
+/* =================================
+   ELEMENTS
+================================= */
+
+const questionNumberElement =
+  document.getElementById(
+    "questionNumber"
+  );
+
+
+const questionTextElement =
+  document.getElementById(
+    "questionText"
+  );
+
+
+const answersElement =
+  document.getElementById(
+    "answers"
+  );
+
+
+const feedbackElement =
+  document.getElementById(
+    "feedback"
+  );
+
+
+const nextButton =
+  document.getElementById(
+    "nextButton"
+  );
+
+
+const resultBox =
+  document.getElementById(
+    "resultBox"
+  );
+
+
+const resultText =
+  document.getElementById(
+    "resultText"
+  );
+
+
+const nextLessonButton =
+  document.getElementById(
+    "nextLessonButton"
+  );
+
+
+
+/* =================================
+   SHUFFLE ANSWERS
+================================= */
+
+function shuffle(array) {
+
+  let shuffled = [...array];
+
+  for (
+    let i = shuffled.length - 1;
+    i > 0;
+    i--
+  ) {
+
+    let j =
+      Math.floor(
+        Math.random() * (i + 1)
+      );
+
+    [
+      shuffled[i],
+      shuffled[j]
+    ] = [
+      shuffled[j],
+      shuffled[i]
+    ];
+
+  }
+
+  return shuffled;
+
+}
+
+
+
+/* =================================
+   SHOW QUESTION
+================================= */
+
+function showQuestion() {
+
+  if (
+    quizStopped ||
+    !selectedLesson
+  ) {
+
+    return;
+
+  }
+
+
+  if (
+    currentQuestion >=
+    selectedLesson.questions.length
+  ) {
+
+    finishQuiz();
+
+    return;
+
+  }
+
+
+  const question =
+    selectedLesson.questions[
+      currentQuestion
+    ];
+
+
+  questionNumberElement.textContent =
+    "Question " +
+    (currentQuestion + 1) +
+    " of " +
+    selectedLesson.questions.length;
+
+
+  questionTextElement.textContent =
+    question.question;
+
+
+  answersElement.innerHTML =
+    "";
+
+
+  feedbackElement.textContent =
+    "";
+
+
+  nextButton.style.display =
+    "none";
+
+
+  const shuffledAnswers =
+    shuffle(question.answers);
+
+
+  shuffledAnswers.forEach(
+    function(answer) {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+
+      button.textContent =
+        answer;
+
+
+      button.style.display =
+        "block";
+
+
+      button.style.width =
+        "100%";
+
+
+      button.style.marginTop =
+        "10px";
+
+
+      button.addEventListener(
+        "click",
+        function() {
+
+          checkAnswer(
+            answer,
+            question.correct
+          );
+
+        }
+      );
+
+
+      answersElement.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =================================
+   CHECK ANSWER
+================================= */
+
+function checkAnswer(
+  selectedAnswer,
+  correctAnswer
+) {
+
+  const buttons =
+    answersElement.querySelectorAll(
+      "button"
+    );
+
+
+  buttons.forEach(
+    function(button) {
+
+      button.disabled = true;
+
+    }
+  );
+
+
+  if (
+    selectedAnswer ===
+    correctAnswer
+  ) {
+
+    score++;
+
+
+    feedbackElement.textContent =
+      "✅ Correct! Great work.";
+
+
+    feedbackElement.style.color =
+      "#176b45";
+
+
+  } else {
+
+    addCells(-5);
+
+    updateStats();
+
+
+    feedbackElement.textContent =
+      "❌ Incorrect. You lost 5 Cells. Correct answer: " +
+      correctAnswer;
+
+
+    feedbackElement.style.color =
+      "#b3261e";
+
+
+    if (getCells() <= 0) {
+
+      quizStopped = true;
+
+
+      feedbackElement.textContent +=
+        " Your Cells have reached 0. The quiz has stopped.";
+
+
+      return;
+
+    }
+
+  }
+
+
+  nextButton.style.display =
+    "block";
+
+}
+
+
+
+/* =================================
+   NEXT QUESTION
+================================= */
+
+nextButton.addEventListener(
+  "click",
+  function() {
+
+    currentQuestion++;
+
+    showQuestion();
+
+  }
+);
+
+
+
+/* =================================
+   FINISH QUIZ
+================================= */
+
+function finishQuiz() {
+
+  if (quizStopped) {
+
+    return;
+
+  }
+
+
+  quizStopped = true;
+
+
+  const completionKey =
+    "lesson" +
+    lessonNumber +
+    "Completed";
+
+
+  const alreadyCompleted =
+    localStorage.getItem(
+      completionKey
+    ) === "true";
+
+
+
+  /* =================================
+     FIRST COMPLETION
+  ================================= */
+
+  if (!alreadyCompleted) {
+
+    addCells(20);
+
+    addGP(100);
+
+
+    localStorage.setItem(
+      completionKey,
+      "true"
+    );
+
+
+    localStorage.setItem(
+      "lesson" +
+      lessonNumber +
+      "QuizCompleted",
+      "true"
+    );
+
+
+    resultText.textContent =
+      "You scored " +
+      score +
+      " out of " +
+      selectedLesson.questions.length +
+      ". 🎉 You earned 20 Cells and 100 GP!";
+
+
+  }
+
+
+
+  /* =================================
+     ALREADY COMPLETED
+  ================================= */
+
+  else {
+
+    resultText.textContent =
+      "You scored " +
+      score +
+      " out of " +
+      selectedLesson.questions.length +
+      ". This lesson was already completed, so you earned no additional Cells or GP.";
+
+  }
+
+
+  updateStats();
+
+
+  questionTextElement.style.display =
+    "none";
+
+
+  answersElement.style.display =
+    "none";
+
+
+  feedbackElement.style.display =
+    "none";
+
+
+  nextButton.style.display =
+    "none";
+
+
+  resultBox.style.display =
+    "block";
+
+
+
+  /* =================================
+     NEXT LESSON
+  ================================= */
+
+  if (lessonNumber < 10) {
+
+    nextLessonButton.textContent =
+      "Go to Lesson " +
+      (lessonNumber + 1);
+
+  } else {
+
+    nextLessonButton.textContent =
+      "Back to Lessons";
+
+  }
+
+}
+
+
+
+/* =================================
+   CONTINUE
+================================= */
+
+nextLessonButton.addEventListener(
+  "click",
+  function() {
+
+    if (lessonNumber < 10) {
+
+      window.location.href =
+        "lesson" +
+        (lessonNumber + 1) +
+        ".html";
+
+    } else {
+
+      window.location.href =
+        "lessons.html";
+
+    }
+
+  }
+);
+
+
+
+/* =================================
+   START
+================================= */
+
+showQuestion();
+
+
+</script>
+
+</body>
+
+</html>
